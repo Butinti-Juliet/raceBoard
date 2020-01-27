@@ -1,3 +1,67 @@
 <div>
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
+<!-- <div class="col-xl-6 col-lg-4">
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Ethnicity per gender statistics of registered users</h6>
+            <div class="dropdown no-arrow">
+            </div>
+        </div>
+  
+        <div class="col-xl-10 col-lg-4">
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="line-chart" width="200" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<br><br><br>
+<div class="cont">
+    <div class="example-header">
+        <mat-form-field>
+
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find">
+        </mat-form-field>
+    </div>
+    <div class="example-container mat-elevation-z3">
+        <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
+
+            <ng-container matColumnDef="Clubname">
+                <th mat-header-cell *matHeaderCellDef> Club name </th>
+                <td mat-cell *matCellDef="let club"> {{club.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Address">
+                <th mat-header-cell *matHeaderCellDef>Address </th>
+                <td mat-cell *matCellDef="let club"> {{club.add}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Opening time">
+                <th mat-header-cell *matHeaderCellDef> Opening time </th>
+                <td mat-cell *matCellDef="let club"> {{club.open}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Closing time">
+                <th mat-header-cell *matHeaderCellDef> Closing time </th>
+                <td mat-cell *matCellDef="let club"> {{club.close}} </td>
+            </ng-container>
+            <!-- 
+      <ng-container matColumnDef="Club name">
+        <th mat-header-cell *matHeaderCellDef> Club name </th>
+        <td mat-cell *matCellDef="let user"> {{club.name}} </td>
+      </ng-container> -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let club; columns:  displayedColumns"></tr>
+
+
+
+
+
+
+        </table>
+    </div>
+</div>

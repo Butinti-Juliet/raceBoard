@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../services/data.service';
 import * as Chart from 'chart.js';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,20 @@ import * as Chart from 'chart.js';
 })
 export class HomeComponent implements OnInit {
 
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
+  dataSource: any;
+  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time'];
+  
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  
   myChart:any = [];
   clubList: any;
-
+  array
   constructor(private mydata:DataService) { 
 
     this.mydata.getClubChanges().subscribe(data=>{
@@ -26,6 +38,8 @@ export class HomeComponent implements OnInit {
         }as Club;
       });
       console.log(this.clubList)
+      console.log("adiress",this.clubList[0].add)
+      
     });
 
   }
@@ -68,7 +82,23 @@ export class HomeComponent implements OnInit {
           }
       }
   });
-
+  this.getAllusers()
   }
 
+  getAllusers() {
+    this.mydata.getClubChanges().subscribe((data: any) => {
+
+      this.array = data.map(e => {
+        return {
+          key: e.payload.doc.id,
+          ...e.payload.doc.data()
+        };
+      });
+
+      console.log(this.array)
+      this.dataSource = new MatTableDataSource(this.array)
+      // this.dataSource.paginator = this.paginator;
+      // this.dataSource.sort = this.sort;
+    })
+  }
 }
