@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
   dataSource: any;
-  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time'];
+  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
   
 
   applyFilter(filterValue: string) {
@@ -24,8 +24,17 @@ export class HomeComponent implements OnInit {
   myChart:any = [];
   clubList: any;
   array
-  constructor(private mydata:DataService) { 
 
+  eventList:any[];
+  bookedList:any[];
+  constructor(private mydata:DataService) { 
+    this.rtnEvents();
+   
+    this.rtnBooked();
+   
+
+  }
+  rtnClub(){
     this.mydata.getClubChanges().subscribe(data=>{
       this.clubList=data.map(e=>{
         return{
@@ -38,12 +47,60 @@ export class HomeComponent implements OnInit {
         }as Club;
       });
       console.log(this.clubList)
-      console.log("adiress",this.clubList[0].add)
-      
+      this.dataSource = new MatTableDataSource(this.clubList)
     });
 
-  }
+   }
+   rtnEvents(){
+     this.mydata.getEventsChanges().subscribe(event=>{
+       this.eventList=event.map(e=>{
+         return{
+          key:e.payload.doc.id,
+          name: e.payload.doc.data()['name'],
+          add: e.payload.doc.data()['address'],
+          open: e.payload.doc.data()['openingHours'],
+          close: e.payload.doc.data()['closingHours'],
+          photo: e.payload.doc.data()['photoURL'],
+         }as Events
+       });
+       console.log(this.eventList)
+     });
+   
+   }
+   rtnBooked(){
+    this.mydata.getBokedChanges().subscribe(event=>{
+      this.bookedList=event.map(e=>{
+        return{
+         key:e.payload.doc.id,
+         name: e.payload.doc.data()['name'],
+         add: e.payload.doc.data()['address'],
+         open: e.payload.doc.data()['openingHours'],
+         close: e.payload.doc.data()['closingHours'],
+         photo: e.payload.doc.data()['photoURL'],
+         approved: e.payload.doc.data()['approved'],
+         price: e.payload.doc.data()['price'],
+         tickets: e.payload.doc.data()['tickets'],
+         total: e.payload.doc.data()['total'],
+        
+        }as Events
+      });
+      console.log(this.bookedList)
+    });
+   }
 
+   onDelete(key) {
+    this.mydata.delete(key);
+    alert("You chose to delete the club");
+  }
+  
+  update(){
+    this.mydata.update(this.clubList,this.clubList[0].key);
+    console.log("updated")
+    
+   }
+  //  onUpdate(item) {
+  //   this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, open: item.open, close: item.close } })
+  // }
   ngOnInit() {
 
     this.myChart = new Chart('myChart', {
@@ -82,23 +139,9 @@ export class HomeComponent implements OnInit {
           }
       }
   });
-  this.getAllusers()
+  // this.getAllusers()
+  this.rtnClub();
   }
 
-  getAllusers() {
-    this.mydata.getClubChanges().subscribe((data: any) => {
 
-      this.array = data.map(e => {
-        return {
-          key: e.payload.doc.id,
-          ...e.payload.doc.data()
-        };
-      });
-
-      console.log(this.array)
-      this.dataSource = new MatTableDataSource(this.array)
-      // this.dataSource.paginator = this.paginator;
-      // this.dataSource.sort = this.sort;
-    })
-  }
 }
