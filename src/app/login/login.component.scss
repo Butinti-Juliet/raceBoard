@@ -56,7 +56,7 @@
 } */
 
 .color {
-    -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: black !important;
     background-color: #11C2D4;
     height: 1000px;
     width: 100%;
@@ -65,7 +65,7 @@
 }
 
 .titlee {
-    margin-left: 44px;
+    margin-left: 82px;
 }
 
 mat-card {
@@ -78,7 +78,7 @@ mat-card {
 }
 
 .in {
-    color: white;
+    color: black;
     /* background: white; */
 }
 
@@ -109,8 +109,9 @@ mat-card-title {
 }
 
 .mat-card {
-    /* background: white; */
-    background: rgb(49, 48, 48);
+    background: white;
+    color: black;
+    // background: rgb(49, 48, 48);
     /* color: white; */
 }
 
@@ -122,7 +123,7 @@ mat-card-title {
 .mat-flat-button,
 .mat-mini-fab,
 .mat-raised-button {
-    color: white;
+    color: black;
     background-color: #11C2D4;
 }
 

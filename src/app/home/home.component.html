@@ -23,8 +23,10 @@
 <div class="cont">
     <div class="example-header">
         <mat-form-field>
-
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find">
+            <label for="password">
+                <mat-icon>search</mat-icon>
+            </label>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
         </mat-form-field>
     </div>
     <div class="example-container mat-elevation-z3">
@@ -37,23 +39,23 @@
 
             <ng-container matColumnDef="Address">
                 <th mat-header-cell *matHeaderCellDef>Address </th>
-                <td mat-cell *matCellDef="let club"> {{club.add}} </td>
+                <td mat-cell *matCellDef="let club"> {{club.address}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Opening time">
                 <th mat-header-cell *matHeaderCellDef> Opening time </th>
-                <td mat-cell *matCellDef="let club"> {{club.open}} </td>
+                <td mat-cell *matCellDef="let club"> {{club.openingHours}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Closing time">
                 <th mat-header-cell *matHeaderCellDef> Closing time </th>
-                <td mat-cell *matCellDef="let club"> {{club.close}} </td>
+                <td mat-cell *matCellDef="let club"> {{club.closingHours}} </td>
             </ng-container>
-            <!-- 
-      <ng-container matColumnDef="Club name">
-        <th mat-header-cell *matHeaderCellDef> Club name </th>
-        <td mat-cell *matCellDef="let user"> {{club.name}} </td>
-      </ng-container> -->
+
+            <!-- <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let user"> {{club.Action}} </td>
+            </ng-container> -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let club; columns:  displayedColumns"></tr>
 
