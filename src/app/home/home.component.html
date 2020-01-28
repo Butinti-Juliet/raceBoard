@@ -1,12 +1,13 @@
-<div>
-    <canvas id="myChart" width="400" height="400"></canvas>
-</div>
-<!-- ******************************************* -->
+<!-- <div>
+    <canvas id="myChart" ></canvas>
+</div> -->
+
+<!-- age groups -->
 <div class="col-xl-6 col-lg-4">
     <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Ethnicity statistics of registered users</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Age groups statistics of registered users</h6>
             <div class="dropdown no-arrow">
 
             </div>
@@ -16,7 +17,29 @@
         <div class="card-body">
             <div class="chart-area">
                     
-                            <canvas class="chart" id="chart" width="200" height="200"></canvas>
+                <canvas id="myChart" ></canvas>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- ******************************************* -->
+<!-- Gender -->
+<div class="col-xl-6 col-lg-4">
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Gender statistics of registered users</h6>
+            <div class="dropdown no-arrow">
+
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="col-xl-8 col-lg-4">
+        <div class="card-body">
+            <div class="chart-area">
+                    
+                            <canvas class="chart" id="chart"></canvas>
             </div>
         </div>
         </div>
@@ -112,6 +135,11 @@
             <ng-container matColumnDef="Address">
                 <th mat-header-cell *matHeaderCellDef>Address </th>
                 <td mat-cell *matCellDef="let event" > {{event.add}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Distance">
+                <th mat-header-cell *matHeaderCellDef> Distance </th>
+                <td mat-cell *matCellDef="let event "> {{event.km}}km </td>
             </ng-container>
 
             <ng-container matColumnDef="Opening time">
