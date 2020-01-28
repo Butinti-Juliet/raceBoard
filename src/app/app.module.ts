@@ -21,13 +21,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,28 @@
 <div>
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
+<!-- ******************************************* -->
+<div class="col-xl-6 col-lg-4">
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Ethnicity statistics of registered users</h6>
+            <div class="dropdown no-arrow">
+
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="col-xl-8 col-lg-4">
+        <div class="card-body">
+            <div class="chart-area">
+                    
+                            <canvas class="chart" id="chart" width="200" height="200"></canvas>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- ************************************************ -->
 <!-- <div class="col-xl-6 col-lg-4">
     <div class="card shadow mb-4">
 
@@ -21,14 +43,16 @@
 </div> -->
 <br><br><br>
 <div class="cont"  width="400" height="400">
+      <!-- club filter  -->
     <div class="example-header">
         <mat-form-field>
 
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find">
+            <input matInput (keyup)="clubFilter($event.target.value)" placeholder="Find">
         </mat-form-field>
     </div>
+      <!-- club table  -->
     <div class="example-container mat-elevation-z3">
-        <table mat-table [dataSource]="dataSource"  matSort aria-label="Elements">
+        <table mat-table [dataSource]="clubSource"  matSort aria-label="Elements">
 
             <ng-container matColumnDef="Clubname">
                 <th mat-header-cell *matHeaderCellDef> Club name </th>
@@ -53,12 +77,12 @@
       <ng-container matColumnDef="Action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let club"> 
-            <button (click)="onDelete(club.key)">Delete</button> &nbsp;
+            <button (click)="clubDelete(club.key)">Delete</button> &nbsp;
             <button>Update</button>
         </td>
       </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let club; columns:  displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="clubColumns"></tr>
+            <tr mat-row *matRowDef="let club; columns:  clubColumns"></tr>
 
 
 
@@ -67,4 +91,56 @@
 
         </table>
     </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Events filter  -->
+    <div class="example-header">
+        <mat-form-field>
+
+            <input matInput (keyup)="eventFilter($event.target.value)" placeholder="Find">
+        </mat-form-field>
+    </div>
+  <!-- Events table  -->
+    <div class="example-container mat-elevation-z3" >
+        <table mat-table [dataSource]="eventSource"  matSort aria-label="Elements">
+
+            <ng-container matColumnDef="Eventname">
+                <th mat-header-cell *matHeaderCellDef> Event name </th>
+                <td mat-cell *matCellDef="let event "> {{event.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Address">
+                <th mat-header-cell *matHeaderCellDef>Address </th>
+                <td mat-cell *matCellDef="let event" > {{event.add}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Opening time">
+                <th mat-header-cell *matHeaderCellDef> Opening time </th>
+                <td mat-cell *matCellDef="let event"> {{event.open }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Closing time">
+                <th mat-header-cell *matHeaderCellDef> Closing time </th>
+                <td mat-cell *matCellDef="let event"> {{event.close}} </td>
+            </ng-container>
+            
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let event"> 
+            <button (click)="eventDelete(event.key)">Delete</button> &nbsp;
+            <button>Update</button>
+        </td>
+      </ng-container>
+            <tr mat-header-row *matHeaderRowDef="eventColumns"></tr>
+            <tr mat-row *matRowDef="let club; columns:  eventColumns"></tr>
+
+
+
+
+
+
+        </table>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 </div>

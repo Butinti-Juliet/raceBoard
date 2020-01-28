@@ -29,9 +29,15 @@ export class DataService {
   //   this.db.doc('clubs/' + key).delete();
     
   // }
-  delete(key){
+  clubDelete(key){
 
     this.clubDoc = this.db.doc<Club>('clubs/'+key);
+    // this.clubDoc.update(objectA);
+    this.clubDoc.delete();
+  }
+  eventDelete(key){
+
+    this.clubDoc = this.db.doc<Club>('events/'+key);
     // this.clubDoc.update(objectA);
     this.clubDoc.delete();
   }

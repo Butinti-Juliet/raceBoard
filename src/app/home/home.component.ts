@@ -12,14 +12,7 @@ export class HomeComponent implements OnInit {
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
-  dataSource: any;
-  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
   
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
   
   myChart:any = [];
   clubList: any;
@@ -34,6 +27,14 @@ export class HomeComponent implements OnInit {
    
 
   }
+  clubSource: any;
+  clubColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
+  
+
+  clubFilter(filterValue: string) {
+    this.clubSource.filter = filterValue.trim().toLowerCase();
+  }
+
   rtnClub(){
     this.mydata.getClubChanges().subscribe(data=>{
       this.clubList=data.map(e=>{
@@ -47,15 +48,24 @@ export class HomeComponent implements OnInit {
         }as Club;
       });
       console.log(this.clubList)
-      this.dataSource = new MatTableDataSource(this.clubList)
+      this.clubSource = new MatTableDataSource(this.clubList)
     });
 
    }
+   eventSource: any;
+  eventColumns: string[] = ['Eventname', 'Address', 'Opening time', 'Closing time','Action'];
+  
+
+  eventFilter(filterValue: string) {
+    this.eventSource.filter = filterValue.trim().toLowerCase();
+  }
+
    rtnEvents(){
      this.mydata.getEventsChanges().subscribe(event=>{
        this.eventList=event.map(e=>{
          return{
           key:e.payload.doc.id,
+          club:e.payload.doc.data()['clubID'],
           name: e.payload.doc.data()['name'],
           add: e.payload.doc.data()['address'],
           open: e.payload.doc.data()['openingHours'],
@@ -64,9 +74,19 @@ export class HomeComponent implements OnInit {
          }as Events
        });
        console.log(this.eventList)
+       this.eventSource = new MatTableDataSource(this.eventList)
      });
    
    }
+
+  //  booked events
+  bookedSource: any;
+  bookedColumns: string[] = ['Eventname', 'Address', 'Opening time', 'Closing time','Action'];
+  
+
+  bookedFilter(filterValue: string) {
+    this.bookedSource.filter = filterValue.trim().toLowerCase();
+  }
    rtnBooked(){
     this.mydata.getBokedChanges().subscribe(event=>{
       this.bookedList=event.map(e=>{
@@ -85,14 +105,18 @@ export class HomeComponent implements OnInit {
         }as Events
       });
       console.log(this.bookedList)
+      this.bookedSource = new MatTableDataSource(this.eventList)
     });
    }
 
-   onDelete(key) {
-    this.mydata.delete(key);
+   clubDelete(key) {
+    this.mydata.clubDelete(key);
     alert("You chose to delete the club");
   }
-  
+  eventDelete(key) {
+    this.mydata.eventDelete(key);
+    alert("You chose to delete the event");
+  }
   update(){
     this.mydata.update(this.clubList,this.clubList[0].key);
     console.log("updated")
@@ -142,6 +166,5 @@ export class HomeComponent implements OnInit {
   // this.getAllusers()
   this.rtnClub();
   }
-
 
 }
