@@ -6,4 +6,5 @@ class Events{
     open:string='';
     close:string='';
     photo:string='';
+    // distance:number;
 }
