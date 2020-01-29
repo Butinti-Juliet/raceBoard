@@ -1,7 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-        <!-- <mat-icon>menu</mat-icon> -->
-        <mat-toolbar class="mn" color="primary">Menu</mat-toolbar>
+
+        <mat-toolbar class="mn" color="primary">
+            <img src="/assets/images__1_-removebg-preview.png" class="img">&nbsp;Fun Race DashBoard</mat-toolbar>
 
         <mat-nav-list>
 
@@ -10,6 +11,24 @@
                 <mat-icon>home</mat-icon>
                 <!-- <img src="/assets/25694-removebg-preview.PNG"> -->
                 <span style="margin-left: 20px;">Home</span>
+
+            </a>
+            <!-- <a mat-list-item routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <mat-icon>directions_walk</mat-icon>
+                <span style="margin-left: 20px;">RaceClubs</span>
+
+            </a>
+            <a mat-list-item routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                
+                <mat-icon>check_box</mat-icon>
+                <span style="margin-left: 20px;">RaceEvents</span>
+            </a> -->
+
+            <a mat-list-item routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <!-- <i class="material-icons">dashboard</i> -->
+                <mat-icon>storage</mat-icon>
+                <!-- <img src="/assets/25694-removebg-preview.PNG"> -->
+                <span style="margin-left: 20px;">BookedEvents</span>
 
             </a>
 
@@ -36,12 +55,12 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <!-- <mat-toolbar color="primary"> -->
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-            <span>Race DashBoard</span>
-        </mat-toolbar>
+        <!-- <span>Race DashBoard</span> -->
+        <!-- </mat-toolbar> -->
         <!-- Add Content Here -->
         <router-outlet></router-outlet>
     </mat-sidenav-content>

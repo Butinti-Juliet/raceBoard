@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../services/data.service';
 import * as Chart from 'chart.js';
-import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatSort, MatPaginator, MatTableDataSource} from '@angular/material';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
@@ -13,14 +13,28 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
+  
+
+  
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) evpaginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
   
-  
+  dataSource: any;
+  EventSource:any;
+  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
+  displayColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
+
+
+ 
+  MatTableEventSource: any
   myChart:any = [];
   chart:any = [];
   clubList: any;
-  array
+  array: any
   boy: number=0;
   girl: number=0;
   other: number=0;
@@ -62,7 +76,10 @@ export class HomeComponent implements OnInit {
         }as Club;
       });
       console.log(this.clubList)
-      this.clubSource = new MatTableDataSource(this.clubList)
+ 
+      this.dataSource = new MatTableDataSource(this.clubList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
 
    }
@@ -90,6 +107,8 @@ export class HomeComponent implements OnInit {
        });
        console.log(this.eventList)
        this.eventSource = new MatTableDataSource(this.eventList)
+       this.eventSource.paginator = this.evpaginator;
+       this.eventSource.sort = this.sort;
      });
    
    }

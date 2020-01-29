@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
-import { MatButtonModule, MatCardModule, MatInputModule, MatRadioModule, MatSelectModule, MatToolbarModule, MatListModule, MatIconModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatRadioModule, MatSelectModule, MatToolbarModule, MatListModule, MatIconModule, MatTableModule, MatPaginatorModule, MatDividerModule} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -22,6 +22,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { UpdateComponent } from './update/update.component';
+import { MatDivider } from '@angular/material';
+import { BookedEventsComponent } from './booked-events/booked-events.component';
+
+// import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { UpdateComponent } from './update/update.component';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    UpdateComponent
+    UpdateComponent,
+    BookedEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,11 @@ import { UpdateComponent } from './update/update.component';
     MatListModule,
     MatIconModule,
     MatTableModule,
+    MatDividerModule,
+    MatPaginatorModule,
+
+    // FlexLayoutModule,
+
 
     MatSidenavModule,
     BrowserAnimationsModule,
