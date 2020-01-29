@@ -3,6 +3,8 @@ import { DataService } from '../services/data.service';
 import * as Chart from 'chart.js';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home',
@@ -94,7 +96,7 @@ export class HomeComponent implements OnInit {
 
   //  booked events
   bookedSource: any;
-  bookedColumns: string[] = ['Eventname', 'Address', 'Opening time', 'Closing time','Action'];
+  bookedColumns: string[] = ['Name', 'Address', 'Price', 'Tickets','Total','Payed'];
   
 
   bookedFilter(filterValue: string) {
@@ -118,12 +120,36 @@ export class HomeComponent implements OnInit {
         }as Events
       });
       console.log(this.bookedList)
-      this.bookedSource = new MatTableDataSource(this.eventList)
+      this.bookedSource = new MatTableDataSource(this.bookedList)
     });
    }
-
+   updateDoc() {
+    this.mydata.getBokedChanges().subscribe(event=>{
+      this.bookedList=event.map(e=>{
+        return{
+         key:e.payload.doc.id,
+         name: e.payload.doc.data()['name'],
+         add: e.payload.doc.data()['address'],
+         open: e.payload.doc.data()['openingHours'],
+         close: e.payload.doc.data()['closingHours'],
+         photo: e.payload.doc.data()['photoURL'],
+         approved: e.payload.doc.data()['approved'],
+         price: e.payload.doc.data()['price'],
+         tickets: e.payload.doc.data()['tickets'],
+         total: e.payload.doc.data()['total'],
+        
+        }as Events
+      });
+      this.firestore.doc(`bookedEvents/${this.bookedList[0].key}`).update({approved: true});
+      console.log(this.bookedList)
+  });
+  }
    clubDelete(key) {
     this.mydata.clubDelete(key);
+    alert("You chose to delete the club");
+  }
+  bookedDelete(key) {
+    this.mydata.bookedDelete(key);
     alert("You chose to delete the club");
   }
   eventDelete(key) {
@@ -135,15 +161,53 @@ export class HomeComponent implements OnInit {
     console.log("updated")
     
    }
+ 
+
+
   //  onUpdate(item) {
   //   this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, open: item.open, close: item.close } })
   // }
+  // update(item){
+//   item.name="Mango";
+//   item.price=10;
+//   item.type="Fruits";
+//   this.itemDoc = this.afs.doc<Item>('Grocery/3AnqLWbS2SVh4rtDQSHv');
+//   this.itemDoc.update(item);
+// }
   ngOnInit() {
 
   
   this.rtnClub();
   this.genderDB();
   this.ageDB();
+  this. clubOwners();
+  this. rtnBooked();
+  }
+  theUser;
+  theClub;
+ 
+  clubOwners(){
+    this.theUser=this.firestore.collection('users').valueChanges().subscribe((user: any)=>{
+      console.log(user.uid)
+      // for (let i = 0; i < user.length; i++) {
+      //   let uid = user[i].uid;
+      //   console.log('uid',uid)
+      // }
+    });
+    this.theClub=this.firestore.collection('clubs').valueChanges().subscribe((club: any)=>{
+      // for (let i = 0; i < club.length; i++) {
+      //   let uid = club[i].userID;
+      //   console.log('uid',uid)
+      // }
+    
+    });
+  console.log(this.theUser);
+  console.log(this.theClub)
+
+  }
+  
+  eventOwners(){
+
   }
   ageDB(){
     this.firestore.collection('users').valueChanges().subscribe((data: any) => {

@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 
 export class DataService {
   private clubDoc: AngularFirestoreDocument<Club>;
+  private bookedDoc: AngularFirestoreDocument<Events>;
   constructor(private db: AngularFirestore) { }
   getClubChanges() {
     return this.db.collection('clubs').snapshotChanges();
@@ -17,6 +18,7 @@ export class DataService {
     return this.db.collection('events').snapshotChanges();
     
   }
+ 
   getBokedChanges() {
     return this.db.collection('bookedEvents').snapshotChanges();
     
@@ -34,6 +36,12 @@ export class DataService {
     this.clubDoc = this.db.doc<Club>('clubs/'+key);
     // this.clubDoc.update(objectA);
     this.clubDoc.delete();
+  }
+  bookedDelete(key){
+
+    this.bookedDoc = this.db.doc<Events>('bookedEvents/'+key);
+    
+    this.bookedDoc.delete();
   }
   eventDelete(key){
 
