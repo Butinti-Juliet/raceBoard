@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import { BookedEventsComponent } from './booked-events/booked-events.component';
 import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.component';
+import { UpdateComponent } from './update/update.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'registeredclubs', component: RegisteredclubsComponent},
     {path: 'BookedEvents', component: BookedEventsComponent},
-    {path: 'Registeredevents', component: RegisteredeventsComponent}
+    {path: 'Registeredevents', component: RegisteredeventsComponent},
+    {path: 'update', component: UpdateComponent}
  
   ]}
 ];

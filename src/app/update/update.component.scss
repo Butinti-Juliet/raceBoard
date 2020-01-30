@@ -1,0 +1,26 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.bt {
+    width: 70px;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+// mat-card {
+//     background-color: white;
+// }
+// .pops {
+//     background-color: whitesmoke;
+//     height: 100%;
+//     width: 100%;
+// }
