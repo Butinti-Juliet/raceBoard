@@ -12,6 +12,9 @@ export class DataService {
   private bookedDoc: AngularFirestoreDocument<Events>;
 
   currentBook = [];
+  // private clubDoc: AngularFirestoreDocument<Club>;  
+private eventDoc: AngularFirestoreDocument<Event>;    
+
   constructor(private db: AngularFirestore) { }
   getClubChanges() {
     return this.db.collection('clubs').snapshotChanges();
@@ -54,9 +57,20 @@ export class DataService {
   }
   clubUpdate(objectA,key){
 
-    this.clubDoc = this.db.doc<Club>('club/'+key);
+    this.clubDoc = this.db.doc<Club>('clubs/'+key);
     this.clubDoc.update(objectA);
   }
+  eventUpdate(objectA,key){
+
+    this.clubDoc = this.db.doc<Club>('events/'+key);
+    this.clubDoc.update(objectA);
+  }
+  bookedUpdate(objectA,key){
+
+    this.clubDoc = this.db.doc<Club>('bookedEvents/'+key);
+    this.clubDoc.update(objectA);
+  }
+
 
   booking(myevents) {
     this.currentBook = []

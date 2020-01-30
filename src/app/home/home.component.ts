@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../services/data.service';
 import * as Chart from 'chart.js';
 import { MatSort, MatPaginator, MatTableDataSource} from '@angular/material';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -21,14 +21,11 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) evpaginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
-  
+
   dataSource: any;
   EventSource:any;
   displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
-  displayColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
-
+ 
 
  
   MatTableEventSource: any
@@ -50,70 +47,13 @@ export class HomeComponent implements OnInit {
   eventList:any[];
   bookedList:any[];
   constructor(private mydata:DataService,private firestore:AngularFirestore,private router: Router) { 
-    this.rtnEvents();
+    // this.rtnEvents();
    
     this.rtnBooked();
    
 
   }
-  clubSource: any;
-  clubColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
   
-
-  clubFilter(filterValue: string) {
-    this.clubSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  rtnClub(){
-    this.mydata.getClubChanges().subscribe(data=>{
-      this.clubList=data.map(e=>{
-        return{
-          key:e.payload.doc.id,
-          name: e.payload.doc.data()['name'],
-          add: e.payload.doc.data()['address'],
-          open: e.payload.doc.data()['openingHours'],
-          close: e.payload.doc.data()['closingHours'],
-          photo: e.payload.doc.data()['photoURL'],
-        }as Club;
-      });
-      console.log(this.clubList)
- 
-      this.dataSource = new MatTableDataSource(this.clubList)
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
-
-   }
-   eventSource: any;
-  eventColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
-  
-
-  eventFilter(filterValue: string) {
-    this.eventSource.filter = filterValue.trim().toLowerCase();
-  }
-
-   rtnEvents(){
-     this.mydata.getEventsChanges().subscribe(event=>{
-       this.eventList=event.map(e=>{
-         return{
-          key:e.payload.doc.id,
-          club:e.payload.doc.data()['clubID'],
-          name: e.payload.doc.data()['name'],
-          km: e.payload.doc.data()['distance'],
-          add: e.payload.doc.data()['address'],
-          open: e.payload.doc.data()['openingHours'],
-          close: e.payload.doc.data()['closingHours'],
-          photo: e.payload.doc.data()['photoURL'],
-         }as Events
-       });
-       console.log(this.eventList)
-       this.eventSource = new MatTableDataSource(this.eventList)
-       this.eventSource.paginator = this.evpaginator;
-       this.eventSource.sort = this.sort;
-     });
-   
-   }
-
   //  booked events
   bookedSource: any;
   bookedColumns: string[] = ['Name', 'Address', 'Price', 'Tickets','Total','Payed'];
@@ -182,12 +122,13 @@ this.mydata.booking(myevents);
   ngOnInit() {
 
   
-  this.rtnClub();
+  
   this.genderDB();
   this.ageDB();
   this. clubOwners();
   this. rtnBooked();
   }
+
   theUser;
   theClub;
  
@@ -332,5 +273,5 @@ applyFilter(filterValue: string) {
   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
   this.dataSource.filter = filterValue;
 }
-      
+
 }

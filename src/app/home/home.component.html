@@ -1,156 +1,52 @@
-<div class="pops">
-    <!-- <div>
+<!-- <div>
     <canvas id="myChart" ></canvas>
 </div> -->
 
-    <!-- age groups -->
-    <div class="col-xl-6 col-lg-4">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                <h3 class="m-0 font-weight-bold text-primary">Age groups statistics of registered users</h3>
-                <div class="dropdown no-arrow">
-
-                </div>
-            </div>
-            <!-- Card Body -->
-            <div class="col-xl-8 col-lg-4">
-                <div class="card-body">
-                    <div class="chart-area">
-
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <!-- ******************************************* -->
-    <!-- Gender -->
-    <div class="col-xl-6 col-lg-4">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                <h3 class="m-0 font-weight-bold text-primary">Gender statistics of registered users</h3>
-                <div class="dropdown no-arrow">
-
-                </div>
-            </div>
-            <!-- Card Body -->
-            <div class="col-xl-8 col-lg-4">
-                <div class="card-body">
-                    <div class="chart-area">
-
-                        <canvas class="chart" id="chart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ************************************************ -->
-    <!-- <div class="col-xl-6 col-lg-4">
+<!-- age groups -->
+<div class="col-xl-6 col-lg-4">
     <div class="card shadow mb-4">
-
+        <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Ethnicity per gender statistics of registered users</h6>
+            <h3 class="m-0 font-weight-bold text-primary">Age groups statistics of registered users</h3>
             <div class="dropdown no-arrow">
+
             </div>
         </div>
-  
-        <div class="col-xl-10 col-lg-4">
+        <!-- Card Body -->
+        <div class="col-xl-8 col-lg-4">
             <div class="card-body">
                 <div class="chart-area">
-                    <canvas id="line-chart" width="200" height="200"></canvas>
+
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
-
-    <br><br>
-
-
-    <!-- <div class="example-header">
-        <mat-form-field>
-
-            <mat-list>
-                <mat-list-item>
-                    <label for="password">
-                                    <mat-icon>search</mat-icon>
-                                </label>
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
-                    <mat-divider></mat-divider>
-                </mat-list-item>
-            </mat-list>
-        </mat-form-field>
-    </div> -->
-    <mat-card>
+</div>
+<br><br>
+<!-- ******************************************* -->
+<!-- Gender -->
+<div class="col-xl-6 col-lg-4">
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-            <h3 class="m-0 font-weight-bold text-primary">Registered clubs</h3>
+            <h3 class="m-0 font-weight-bold text-primary">Gender statistics of registered users</h3>
             <div class="dropdown no-arrow">
 
             </div>
         </div>
-        <br>
-        <div class="cont" width="280" height="280">
-            <div class="example-header">
-                <mat-form-field>
-                    <label for="password">
-                                        <mat-icon>search</mat-icon>
-                                    </label>
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
-                    <mat-divider></mat-divider>
-                </mat-form-field>
-            </div>
-            <div class="example-container mat-elevation-z3">
-                <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
+        <!-- Card Body -->
+        <div class="col-xl-8 col-lg-4">
+            <div class="card-body">
+                <div class="chart-area">
 
-                    <ng-container matColumnDef="Clubname">
-                        <th mat-header-cell *matHeaderCellDef> Club name </th>
-                        <td mat-cell *matCellDef="let club "> {{club.name}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Address">
-                        <th mat-header-cell *matHeaderCellDef>Address </th>
-                        <td mat-cell *matCellDef="let club"> {{club.add}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Opening time">
-                        <th mat-header-cell *matHeaderCellDef> Opening time </th>
-                        <td mat-cell *matCellDef="let club"> {{club.open}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Closing time">
-                        <th mat-header-cell *matHeaderCellDef> Closing time </th>
-                        <td mat-cell *matCellDef="let club"> {{club.close}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let club">
-                            <mat-icon (click)="clubDelete(club.key)">delete</mat-icon>&nbsp;
-                            <mat-icon (click)="clubUpdate(club)">update</mat-icon>
-                            <!-- <button (click)="onDelete(club.key)">Delete</button> &nbsp; -->
-                            <!-- <button>Update</button> -->
-
-                        </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let club; columns:  displayedColumns"></tr>
-
-
-
-                </table>
-
-                <mat-paginator #paginator [pageIndex]="0" [pageSize]="4" [pageSizeOptions]="[4,8,12,16,20]">
-                </mat-paginator>
-                <!-- <mat-paginator [pageSizeOptions]="[4, 8, 12]" showFirstLastButtons></mat-paginator> -->
+                    <canvas class="chart" id="chart"></canvas>
+                </div>
             </div>
         </div>
-    </mat-card>
-
-    <!-- Events table  -->
-    <br><br>
-
-
+    </div>
 </div>
+
+<br><br>
+
+<br><br>
