@@ -24,6 +24,7 @@ import { MenuComponent } from './menu/menu.component';
 import { UpdateComponent } from './update/update.component';
 import { MatDivider } from '@angular/material';
 import { BookedEventsComponent } from './booked-events/booked-events.component';
+import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -34,7 +35,8 @@ import { BookedEventsComponent } from './booked-events/booked-events.component';
     HomeComponent,
     MenuComponent,
     UpdateComponent,
-    BookedEventsComponent
+    BookedEventsComponent,
+    RegisteredeventsComponent
   ],
   imports: [
     BrowserModule,

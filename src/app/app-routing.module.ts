@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { BookedEventsComponent } from './booked-events/booked-events.component';
+import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'menu', component : MenuComponent, children:[
   
     {path: 'home', component: HomeComponent},
-    {path: 'BookedEvents', component: BookedEventsComponent}
+    {path: 'BookedEvents', component: BookedEventsComponent},
+    {path: 'Registeredevents', component: RegisteredeventsComponent}
  
   ]}
 ];

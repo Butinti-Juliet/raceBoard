@@ -1,0 +1,70 @@
+<div class="pops">
+    <mat-card>
+        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+            <h3 class="m-0 font-weight-bold text-primary">Registered events</h3>
+            <div class="dropdown no-arrow">
+
+            </div>
+        </div>
+        <br>
+        <div class="cont" width="280" height="280">
+            <div class="example-header">
+                <mat-form-field>
+                    <label for="password">
+                                        <mat-icon>search</mat-icon>
+                                    </label>
+
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+            <div class="example-container mat-elevation-z3">
+                <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
+
+                    <ng-container matColumnDef="Eventname">
+                        <th mat-header-cell *matHeaderCellDef> Event name </th>
+                        <td mat-cell *matCellDef="let event "> {{event.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Address">
+                        <th mat-header-cell *matHeaderCellDef>Address </th>
+                        <td mat-cell *matCellDef="let event"> {{event.add}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Distance">
+                        <th mat-header-cell *matHeaderCellDef> Distance </th>
+                        <td mat-cell *matCellDef="let event "> {{event.km}}km </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Opening time">
+                        <th mat-header-cell *matHeaderCellDef> Opening time </th>
+                        <td mat-cell *matCellDef="let event"> {{event.open }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Closing time">
+                        <th mat-header-cell *matHeaderCellDef> Closing time </th>
+                        <td mat-cell *matCellDef="let event"> {{event.close}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let event">
+                            <!-- <button (click)="eventDelete(event.key)">Delete</button> &nbsp;
+                            <button>Update</button> -->
+                            <mat-icon (click)="eventDelete(event.key)">delete</mat-icon>&nbsp;
+                            <mat-icon>update</mat-icon>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let event; columns:  displayedColumns"></tr>
+
+                </table>
+
+
+                <mat-paginator #paginator [pageIndex]="0" [pageSize]="4" [pageSizeOptions]="[4,8,12,16,20]">
+                </mat-paginator>
+
+            </div>
+        </div>
+    </mat-card>
+</div>

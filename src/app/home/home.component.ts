@@ -161,7 +161,7 @@ this.mydata.booking(myevents);
     alert("You chose to delete the event");
   }
   clubUpdate(item){
-    // this.mydata.clubUpdate(this.clubList,this.clubList[0].key);
+    
    
       this.router.navigate(['/update'], { queryParams:{key: item.key, name: item.name, address: item.add}})
     
