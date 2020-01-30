@@ -17,14 +17,12 @@ export class HomeComponent implements OnInit {
 
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatPaginator, {static: true}) evpaginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
   
   dataSource: any;
-  EventSource:any;
   displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
   displayColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
 
@@ -49,8 +47,7 @@ export class HomeComponent implements OnInit {
   eventList:any[];
   bookedList:any[];
   constructor(private mydata:DataService,private firestore:AngularFirestore) { 
-    this.rtnEvents();
-   
+  
     this.rtnBooked();
    
 
@@ -83,35 +80,8 @@ export class HomeComponent implements OnInit {
     });
 
    }
-   eventSource: any;
-  eventColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
   
 
-  eventFilter(filterValue: string) {
-    this.eventSource.filter = filterValue.trim().toLowerCase();
-  }
-
-   rtnEvents(){
-     this.mydata.getEventsChanges().subscribe(event=>{
-       this.eventList=event.map(e=>{
-         return{
-          key:e.payload.doc.id,
-          club:e.payload.doc.data()['clubID'],
-          name: e.payload.doc.data()['name'],
-          km: e.payload.doc.data()['distance'],
-          add: e.payload.doc.data()['address'],
-          open: e.payload.doc.data()['openingHours'],
-          close: e.payload.doc.data()['closingHours'],
-          photo: e.payload.doc.data()['photoURL'],
-         }as Events
-       });
-       console.log(this.eventList)
-       this.eventSource = new MatTableDataSource(this.eventList)
-       this.eventSource.paginator = this.evpaginator;
-       this.eventSource.sort = this.sort;
-     });
-   
-   }
 
   //  booked events
   bookedSource: any;
