@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { resolve } from 'url';
 
 
 @Injectable({
@@ -9,6 +10,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class DataService {
   private clubDoc: AngularFirestoreDocument<Club>;
   private bookedDoc: AngularFirestoreDocument<Events>;
+
+  currentBook = [];
   constructor(private db: AngularFirestore) { }
   getClubChanges() {
     return this.db.collection('clubs').snapshotChanges();
@@ -49,9 +52,35 @@ export class DataService {
     // this.clubDoc.update(objectA);
     this.clubDoc.delete();
   }
-  update(objectA,key){
+  clubUpdate(objectA,key){
 
     this.clubDoc = this.db.doc<Club>('club/'+key);
     this.clubDoc.update(objectA);
   }
+
+  booking(myevents) {
+    this.currentBook = []
+    return new Promise((resolve, reject) => {
+
+      this.currentBook.push(
+
+        {
+          myevents
+
+        }
+
+      )
+      console.log(myevents);
+      
+      if(myevents.approved==false){
+        this.db.doc(`bookedEvents/${myevents.key}`).update({approved: true});
+        console.log(myevents.approved);
+      }
+   
+      // console.log(this.currentBook);
+      resolve(this.currentBook)
+    });
+  }
+  
+
 }

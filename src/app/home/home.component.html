@@ -128,8 +128,8 @@
                     <ng-container matColumnDef="Action">
                         <th mat-header-cell *matHeaderCellDef> Action </th>
                         <td mat-cell *matCellDef="let club">
-                            <mat-icon (click)="onDelete(club.key)">delete</mat-icon>&nbsp;
-                            <mat-icon>update</mat-icon>
+                            <mat-icon (click)="clubDelete(club.key)">delete</mat-icon>&nbsp;
+                            <mat-icon (click)="clubUpdate(club)">update</mat-icon>
                             <!-- <button (click)="onDelete(club.key)">Delete</button> &nbsp; -->
                             <!-- <button>Update</button> -->
 
@@ -258,7 +258,7 @@
       <ng-container matColumnDef="Payed">
         <th mat-header-cell *matHeaderCellDef> Payed </th>
         <td mat-cell *matCellDef="let booked"> 
-            <button (click)="updateDoc(booked.key)">yes</button> &nbsp;
+            <button (click)="approve(booked)">yes</button> &nbsp;
             <!-- <button (click)="bookedDelete(booked.key)">no</button> -->
         </td>
       </ng-container>
