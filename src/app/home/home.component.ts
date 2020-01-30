@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit {
    }
  
 
-
+ 
   //  onUpdate(item) {
   //   this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, open: item.open, close: item.close } })
   // }
@@ -339,6 +339,12 @@ export class HomeComponent implements OnInit {
          
         });
   }});
+}
+
+applyFilter(filterValue: string) {
+  filterValue = filterValue.trim(); // Remove whitespace
+  filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+  this.dataSource.filter = filterValue;
 }
       
 }
