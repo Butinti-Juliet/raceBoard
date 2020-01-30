@@ -168,7 +168,7 @@ this.mydata.booking(myevents);
    }
  
 
-
+ 
   //  onUpdate(item) {
   //   this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, open: item.open, close: item.close } })
   // }
@@ -325,6 +325,12 @@ this.mydata.booking(myevents);
          
         });
   }});
+}
+
+applyFilter(filterValue: string) {
+  filterValue = filterValue.trim(); // Remove whitespace
+  filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+  this.dataSource.filter = filterValue;
 }
       
 }
