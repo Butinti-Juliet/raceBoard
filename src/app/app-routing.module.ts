@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { BookedEventsComponent } from './booked-events/booked-events.component';
 import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
+import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'menu', component : MenuComponent, children:[
   
     {path: 'home', component: HomeComponent},
+    {path: 'registeredclubs', component: RegisteredclubsComponent},
     {path: 'BookedEvents', component: BookedEventsComponent},
     {path: 'Registeredevents', component: RegisteredeventsComponent}
  

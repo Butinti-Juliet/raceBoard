@@ -24,8 +24,7 @@ export class HomeComponent implements OnInit {
   
   dataSource: any;
   displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
-  displayColumns: string[] = ['Eventname', 'Address','Distance', 'Opening time', 'Closing time','Action'];
-
+ 
 
  
   MatTableEventSource: any
@@ -52,37 +51,7 @@ export class HomeComponent implements OnInit {
    
 
   }
-  clubSource: any;
-  clubColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
   
-
-  clubFilter(filterValue: string) {
-    this.clubSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  rtnClub(){
-    this.mydata.getClubChanges().subscribe(data=>{
-      this.clubList=data.map(e=>{
-        return{
-          key:e.payload.doc.id,
-          name: e.payload.doc.data()['name'],
-          add: e.payload.doc.data()['address'],
-          open: e.payload.doc.data()['openingHours'],
-          close: e.payload.doc.data()['closingHours'],
-          photo: e.payload.doc.data()['photoURL'],
-        }as Club;
-      });
-      console.log(this.clubList)
- 
-      this.dataSource = new MatTableDataSource(this.clubList)
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
-
-   }
-  
-
-
   //  booked events
   bookedSource: any;
   bookedColumns: string[] = ['Name', 'Address', 'Price', 'Tickets','Total','Payed'];
@@ -166,7 +135,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
   
-  this.rtnClub();
+  
   this.genderDB();
   this.ageDB();
   this. clubOwners();
