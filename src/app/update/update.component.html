@@ -1,4 +1,5 @@
-<div class="pops">
+<!-- <div class="pops">
+
     <br>
     <br>
     <br>
@@ -13,30 +14,111 @@
         <br>
 
         <div class="example-container">
-            <mat-form-field>
-                <label>Name:</label>
-                <input matInput placeholder="">
-                <mat-divider></mat-divider>
-            </mat-form-field>
-            <mat-form-field>
-                <label>Address</label>
-                <input matInput placeholder="">
-                <mat-divider></mat-divider>
-            </mat-form-field>
-            <mat-form-field>
-                <label>Open Hours</label>
-                <input matInput placeholder="">
-                <mat-divider></mat-divider>
-            </mat-form-field>
-            <mat-form-field>
-                <label>Close Hours</label>
-                <input matInput placeholder="">
-                <mat-divider></mat-divider>
-            </mat-form-field>
-            <br><br>
+            <form [formGroup]="updateForm" novalidate (ngSubmit)="onSubmit()">
+                <mat-form-field>
 
-            <button mat-raised-button class="bt">Submit</button>
+                    <label>Name:</label>
+                    <input matInput placeholder="" formControlName="name">
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+                <mat-form-field>
+                    <label>Address</label>
+                    <input matInput placeholder="" formControlName="address">
+                    <mat-divider></mat-divider>
+                </mat-form-field>
 
+                <mat-form-field>
+                    <label>Open Hours</label>
+                    <input matInput placeholder="" formControlName="open">
+
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <label>Close Hours</label><br>
+                    <input formControlName="time" type="time" name="usr_time">
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+                <br><br>
+
+                <button mat-raised-button class="bt">Submit</button>
+            </form>
         </div>
     </mat-card>
+</div> -->
+<div class="color ">
+    <br>
+    <br>
+
+    <form [formGroup]=" updateForm" novalidate>
+        <mat-card class="shipping-card mat-elevation-z24">
+            <!-- <mat-card-header>
+                <mat-card-title>Update</mat-card-title>
+            </mat-card-header> -->
+            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                <h3 class="m-0 font-weight-bold text-primary">Update Details</h3>
+                <div class="dropdown no-arrow">
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Name:</label>
+                            <input matInput placeholder="" formControlName="name">
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf="updateForm.controls['name'].hasError('required')">
+                                User Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Address:</label>
+                            <input matInput placeholder="" formControlName="Address">
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf=" updateForm.controls['Address'].hasError('required')">
+                                Address is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Open Hours:</label>
+                            <input matInput placeholder="" formControlName="open">
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf="updateForm.controls['open'].hasError('required')">
+                                Open time is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Close Hours:</label>
+                            <input matInput placeholder="" formControlName="close">
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf=" updateForm.controls['close'].hasError('required')">
+                                Close is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button class="bt" type="submit" (click)="Update()" class="md-button" [disabled]="! updateForm.valid">Update</button>
+
+            </mat-card-actions>
+
+        </mat-card>
+    </form>
 </div>

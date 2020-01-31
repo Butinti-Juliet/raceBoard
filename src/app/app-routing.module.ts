@@ -7,6 +7,8 @@ import { BookedEventsComponent } from './booked-events/booked-events.component';
 import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.component';
 import { UpdateComponent } from './update/update.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { PreviousEventsComponent } from './previous-events/previous-events.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,10 @@ const routes: Routes = [
     {path: 'registeredclubs', component: RegisteredclubsComponent},
     {path: 'BookedEvents', component: BookedEventsComponent},
     {path: 'Registeredevents', component: RegisteredeventsComponent},
+    {path: 'previousEvents', component: PreviousEventsComponent},
+    {path: 'sponsors', component: SponsorsComponent},
     {path: 'update', component: UpdateComponent}
- 
+    
   ]}
 ];
 

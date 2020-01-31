@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update',
@@ -8,8 +9,23 @@ import { DataService } from '../services/data.service';
 })
 export class UpdateComponent implements OnInit {
 
+  updateForm= this.fb.group({
+
+    name: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30), Validators.required])],
+    Address: ['', Validators.required],
+    open: ['', Validators.required],
+    close: ['', Validators.required],
+   
+  });
+
   clubList:any;
-  constructor(private data:DataService) { }
+  constructor(private data:DataService,private fb: FormBuilder) { }
+
+  onSubmit() {
+    alert('Thanks!');
+  }
+
+
 
   ngOnInit() {
     this.rtnClub();
