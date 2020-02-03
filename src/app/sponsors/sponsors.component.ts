@@ -4,6 +4,7 @@ import { DataService } from '../services/data.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sponsors',
@@ -11,6 +12,8 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./sponsors.component.scss']
 })
 export class SponsorsComponent implements OnInit {
+
+  selectedFile = null;
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
@@ -27,43 +30,43 @@ export class SponsorsComponent implements OnInit {
   clubList:any;
   srcResult: any;
   uniqkey: string;
-  constructor(private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
+  name: any;
+  constructor(private http: HttpClient,private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
 
   onSubmit() {
     alert('Thanks!');
   }
+  
+  
+  onFileSelected(event){
+   this.selectedFile = event.target.files[0];
 
-  uploadFile(event) {
-    const file = event.target.files[0];
-    this.uniqkey = 'PIC' ;
-    const filePath =this.uniqkey;;
-    const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
-
-    // observe percentage changes
-    this.uploadPercent = task.percentageChanges();
-    // get notified when the download URL is available
-    task.snapshotChanges().pipe(
-        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
-     )
-    .subscribe()
   }
+onUplaod(){
+// 
+}
+  // uploadFile(event) {
+  //   const file = event.target.files[0];
+  //   this.uniqkey = 'PIC' ;
+  //   const filePath =this.uniqkey;;
+  //   const fileRef = this.storage.ref(filePath);
+  //   const task = this.storage.upload(filePath, file);
 
-  /////
-  // onFileSelected() {
-  //   const inputNode: any = document.querySelector('#file');
-  
-  //   if (typeof (FileReader) !== 'undefined') {
-  //     const reader = new FileReader();
-  
-  //     reader.onload = (e: any) => {
-  //       this.srcResult = e.target.result;
-  //     };
-  
-  //     reader.readAsArrayBuffer(inputNode.files[0]);
-  //   }
+    
+  //   this.uploadPercent = task.percentageChanges();
+ 
+  //   task.snapshotChanges().pipe(
+  //       finalize(() => this.downloadURL = fileRef.getDownloadURL() )
+  //    )
+  //   .subscribe()
+
   // }
-  /////
+  Submit(sponsors){
+    console.log(this.name)
+  }
+ 
+ 
+
 
   ngOnInit() {
   }

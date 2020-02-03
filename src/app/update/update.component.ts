@@ -51,5 +51,11 @@ export class UpdateComponent implements OnInit {
   //   console.log("updated")
     
   //  }
+  // Update(){
+
+    
+  //   console.log(this.clubList)
+  // }
+
 
 }

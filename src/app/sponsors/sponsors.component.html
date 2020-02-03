@@ -19,11 +19,17 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <!-- <mat-icon>camera</mat-icon> -->
-                            <!-- <input formControlName="srcResult" hidden (change)="onFileSelected()" #fileInput type="file" id="file"> -->
+                            <mat-icon>camera</mat-icon>
+                            <input matInput type="file" (chnage)="onFileSelected($event)">
+                            <button type="button" (click)="onUplaod"></button>
+                            <!-- <mat-icon>camera</mat-icon>
+                            <input formControlName="srcResult" hidden (change)="onFileSelected()" #fileInput type="file" id="file">
                             <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
                             <div>{{ uploadPercent | async }}</div>
-                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
+                            <mat-error *ngIf="sponsorForm.controls['srcResult'].hasError('required')">
+                                User Image is <strong>required</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -31,6 +37,8 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <mat-form-field class="full-width">
+                            </mat-form-field>
                             <label>Name:</label>
                             <input matInput placeholder="" formControlName="name">
                             <mat-divider></mat-divider>
@@ -43,6 +51,7 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Description:</label>
                             <textarea matInput placeholder="" formControlName="Description"></textarea>
                             <mat-divider></mat-divider>
@@ -56,8 +65,9 @@
 
 
             </mat-card-content>
+            <br><br>
             <mat-card-actions>
-                <button mat-raised-button class="bt" type="submit" (click)="Submit()" class="md-button" [disabled]="! sponsorForm.valid">Submit</button>
+                <button mat-raised-button class="bt" type="submit" (click)="Submit(sponsors)" class="md-button" [disabled]="! sponsorForm.valid">Submit</button>
 
             </mat-card-actions>
 

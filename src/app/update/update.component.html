@@ -74,11 +74,13 @@
                                 User Name is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Address:</label>
                             <input matInput placeholder="" formControlName="Address">
                             <mat-divider></mat-divider>
@@ -91,6 +93,7 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Open Hours:</label>
                             <input matInput placeholder="" formControlName="open">
                             <mat-divider></mat-divider>
@@ -104,6 +107,7 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Close Hours:</label>
                             <input matInput placeholder="" formControlName="close">
                             <mat-divider></mat-divider>
@@ -114,9 +118,9 @@
                     </div>
                 </div>
             </mat-card-content>
+            <br><br>
             <mat-card-actions>
                 <button mat-raised-button class="bt" type="submit" (click)="Update()" class="md-button" [disabled]="! updateForm.valid">Update</button>
-
             </mat-card-actions>
 
         </mat-card>

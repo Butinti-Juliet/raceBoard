@@ -30,7 +30,8 @@ import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.comp
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { PreviousEventsComponent } from './previous-events/previous-events.component';
- 
+import { HttpClientModule } from '@angular/common/http';
+  import { from } from 'rxjs';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { PreviousEventsComponent } from './previous-events/previous-events.compo
     NgxMaterialTimepickerModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
     AngularFireAnalyticsModule, 
