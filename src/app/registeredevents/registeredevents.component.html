@@ -49,10 +49,9 @@
                     <ng-container matColumnDef="Action">
                         <th mat-header-cell *matHeaderCellDef> Action </th>
                         <td mat-cell *matCellDef="let event">
-                            <!-- <button (click)="eventDelete(event.key)">Delete</button> &nbsp;
-                            <button>Update</button> -->
+                            <p class="p">{{event.key}}</p>
                             <mat-icon (click)="eventDelete(event.key)">delete</mat-icon>&nbsp;
-                            <mat-icon>update</mat-icon>
+                            <mat-icon (click)="add(event)">update</mat-icon>
                         </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

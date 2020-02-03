@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { resolve } from 'url';
-
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -55,15 +55,15 @@ private eventDoc: AngularFirestoreDocument<Event>;
     // this.clubDoc.update(objectA);
     this.clubDoc.delete();
   }
-  clubUpdate(objectA,key){
+  clubUpdate(clubList,key){
 
     this.clubDoc = this.db.doc<Club>('clubs/'+key);
-    this.clubDoc.update(objectA);
+    this.clubDoc.update(clubList);
   }
-  eventUpdate(objectA,key){
+  eventUpdate(eventList,key){
 
-    this.clubDoc = this.db.doc<Club>('events/'+key);
-    this.clubDoc.update(objectA);
+    this.clubDoc = this.db.doc<Events>('events/'+key);
+    this.clubDoc.update(eventList);
   }
   bookedUpdate(objectA,key){
 
@@ -95,6 +95,19 @@ private eventDoc: AngularFirestoreDocument<Event>;
       resolve(this.currentBook)
     });
   }
+  pastEvent;
+  previousEvent(event){
+    this.pastEvent=this.db.collection<any>('pastEvents');
+    this.pastEvent.add(event).then(()=>{
+      alert('previous event has been added successfuly')
+    })
+  }
+  sponsors;
+  sponsor(sponser){
+    this.sponsors=this.db.collection<any>('sponsors');
+    this.sponsors.add(sponser).then(()=>{
+      alert('sponsor has been added successfuly')
+    })
+  }
   
-
 }

@@ -1,0 +1,64 @@
+<div class="color ">
+    <br>
+    <br>
+
+    <form [formGroup]="previousEventsForm" novalidate (ngSubmit)="submit()">
+        <mat-card class="shipping-card mat-elevation-z24">
+            <!-- <mat-card-header>
+                <mat-card-title>Update</mat-card-title>
+            </mat-card-header> -->
+            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                <h3 class="m-0 font-weight-bold text-primary">Previous Events Details</h3>
+                <div class="dropdown no-arrow">
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <!-- <mat-form-field class="full-width">
+                            <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
+                            <div>{{ uploadPercent | async }}</div>
+                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+                        </mat-form-field> -->
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Name:</label>
+                            <input matInput placeholder="" formControlName="name" (input)='events.name=$event.target.value'>
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf="previousEventsForm.controls['name'].hasError('required')">
+                                Event Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <label>Description:</label>
+                            <textarea matInput placeholder="" formControlName="Description"(input)='events.Description=$event.target.value'></textarea>
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf=" previousEventsForm.controls['Description'].hasError('required')">
+                                Description is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button class="bt" >Submit</button>
+                
+            </mat-card-actions>
+
+        </mat-card>
+    </form>
+</div>

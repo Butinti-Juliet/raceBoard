@@ -27,6 +27,12 @@ import { BookedEventsComponent } from './booked-events/booked-events.component';
 import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.component';
 
+// import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { PreviousEventsComponent } from './previous-events/previous-events.component';
+import { UpdateEventComponent } from './pages/update-event/update-event.component';
+import { UpdateClubComponent } from './pages/update-club/update-club.component';
+ 
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -38,9 +44,14 @@ import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.comp
     UpdateComponent,
     BookedEventsComponent,
     RegisteredeventsComponent,
-    RegisteredclubsComponent
+    RegisteredclubsComponent,
+    SponsorsComponent,
+    PreviousEventsComponent,
+    UpdateEventComponent,
+    UpdateClubComponent
   ],
   imports: [
+    // NgxMaterialTimepickerModule,
     BrowserModule,
     AppRoutingModule,
 
@@ -65,7 +76,7 @@ import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.comp
     MatPaginatorModule,
 
     // FlexLayoutModule,
-
+   
 
     MatSidenavModule,
     BrowserAnimationsModule,

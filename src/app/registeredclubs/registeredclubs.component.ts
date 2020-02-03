@@ -65,7 +65,11 @@ export class RegisteredclubsComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
   add(club){
-    this.route.navigate(['/update'],{queryParams:{key:club.key,name:club.name,add:club.add,close:club.close,open:club.open}})
+    this.route.navigate(['/updateClub'],{queryParams:{key:club.key,name:club.name,add:club.add,close:club.close,open:club.open}})
+  }
+  clubDelete(key) {
+    this.mydata.clubDelete(key);
+    alert("You chose to delete the club");
   }
   ngOnInit() {
   }
