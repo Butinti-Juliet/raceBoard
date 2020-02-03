@@ -67,7 +67,7 @@ private eventDoc: AngularFirestoreDocument<Event>;
   }
   bookedUpdate(objectA,key){
 
-    this.clubDoc = this.db.doc<Club>('bookedEvents/'+key);
+    this.clubDoc = this.db.doc<Club>('clubs/'+key);
     this.clubDoc.update(objectA);
   }
 

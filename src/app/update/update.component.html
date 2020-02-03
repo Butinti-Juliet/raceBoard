@@ -12,20 +12,23 @@
         </div>
         <br>
 
-        <div class="example-container">
+        <div class="example-container" >
+
+            
             <mat-form-field>
                 <label>Name:</label>
-                <input matInput placeholder="">
+                <input matInput placeholder="" [value]='clubList.name' (input)='clubList.name=$event.target.value'> 
+                       
                 <mat-divider></mat-divider>
             </mat-form-field>
             <mat-form-field>
                 <label>Address</label>
-                <input matInput placeholder="">
+                <input matInput placeholder="" [value]='clubList.address' (input)='clubList.address=$event.target.value'>
                 <mat-divider></mat-divider>
             </mat-form-field>
             <mat-form-field>
                 <label>Open Hours</label>
-                <input matInput placeholder="">
+                <input matInput placeholder="" >
                 <mat-divider></mat-divider>
             </mat-form-field>
             <mat-form-field>
@@ -38,5 +41,7 @@
             <button mat-raised-button class="bt">Submit</button>
 
         </div>
-    </mat-card>
+    </mat-card> 
+                              
+                                  
 </div>

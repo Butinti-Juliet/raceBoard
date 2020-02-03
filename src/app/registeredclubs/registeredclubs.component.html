@@ -37,7 +37,7 @@
 
                     <ng-container matColumnDef="Closing time">
                         <th mat-header-cell *matHeaderCellDef> Closing time </th>
-                        <td mat-cell *matCellDef="let club"> {{club.close}} </td>
+                        <td mat-cell *matCellDef="let club"> {{club.close}}{{club.key}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="Action">

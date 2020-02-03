@@ -65,7 +65,7 @@ export class RegisteredclubsComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
   add(club){
-    this.route.navigate(['/update'],{queryParams:{name:club.name,add:club.add}})
+    this.route.navigate(['/update'],{queryParams:{key:club.key,name:club.name,add:club.add,close:club.close,open:club.open}})
   }
   ngOnInit() {
   }
