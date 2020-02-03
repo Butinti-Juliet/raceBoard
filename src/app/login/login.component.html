@@ -1,26 +1,27 @@
-<div class="color ">
+<div class="color">
     <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
-        <mat-card class="shipping-card mat-elevation-z24">
+
+        <mat-card class="shipping-card mat-elevation-z24 ">
             <mat-card-header>
-                <mat-card-title class="titlee">Login</mat-card-title>
+                <mat-card-title class="titlee ">Login</mat-card-title>
             </mat-card-header>
             <br>
             <mat-card-content>
 
-                <div class="row">
-                    <div class="col">
+                <div class="row ">
+                    <div class="col ">
 
 
-                        <!-- <form class="example-form"> -->
-                        <mat-form-field class="example-full-width">
-                            <label for="password">Email </label>
-                            <input class="in" matInput placeholder="" formControlName="email">
+                        <!-- <form class="example-form "> -->
+                        <mat-form-field class="example-full-width ">
+                            <label for="password ">Email </label>
+                            <input class="in " matInput placeholder=" " formControlName="email" type="email">
 
-                            <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                            <mat-error *ngIf="loginForm.controls[ 'email'].hasError( 'required') ">
                                 Email is <strong>required</strong>
                             </mat-error>
 
-                            <mat-error *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
+                            <mat-error *ngIf="loginForm.get( 'email').hasError( 'pattern') && loginForm.get( 'email').touched ">
                                 Email address is <strong>  invalid</strong>
                             </mat-error>
                         </mat-form-field>
@@ -29,22 +30,22 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col">
-                        <!-- <form class="example-form"> -->
-                        <mat-form-field class="example-full-width">
-                            <label for="password">Password
+                <div class="row ">
+                    <div class="col ">
+                        <!-- <form class="example-form "> -->
+                        <mat-form-field class="example-full-width ">
+                            <label for="password ">Password
                             </label>
 
                             <input matInput type="password" formControlName="password">
 
-                            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                            <mat-error *ngIf="loginForm.controls[ 'password'].hasError( 'required') ">
                                 Password is <strong>required</strong>
                             </mat-error>
-                            <mat-error *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+                            <mat-error *ngIf="loginForm.get( 'password').hasError( 'minlength') && loginForm.get( 'password').touched ">
                                 Password <strong> Minimum 6 characters</strong>
                             </mat-error>
-                            <mat-error *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+                            <mat-error *ngIf="loginForm.get( 'password').hasError( 'maxlength') && loginForm.get( 'password').touched ">
                                 Password <strong>Maximum 12 characters</strong>
                             </mat-error>
                         </mat-form-field>
@@ -56,14 +57,14 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <button mat-raised-button class="bt" type="submit" (click)="login()" class="md-button" [disabled]="!loginForm.valid">Login</button>
+                <button mat-raised-button class="bt " type="submit " (click)="login() " class="md-button " [disabled]="!loginForm.valid ">Login</button>
             </mat-card-actions>
 
         </mat-card>
 
-        <!-- <a mat-list-item (click)="signout()">
-            <i class="material-icons">logout</i>
-            <span style="margin-left: 20px;">Logout</span>
+        <!-- <a mat-list-item (click)="signout() ">
+            <i class="material-icons ">logout</i>
+            <span style="margin-left: 20px; ">Logout</span>
         </a> -->
     </form>
 </div>

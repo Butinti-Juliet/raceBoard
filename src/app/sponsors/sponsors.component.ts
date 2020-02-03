@@ -4,7 +4,7 @@ import { DataService } from '../services/data.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sponsors',
@@ -22,7 +22,7 @@ export class SponsorsComponent implements OnInit {
 
     name: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30), Validators.required])],
     Description: ['', Validators.required],
-    srcResult: ['', Validators.required],
+    // srcResult: ['', Validators.required],
 
    
   });
@@ -30,8 +30,7 @@ export class SponsorsComponent implements OnInit {
   clubList:any;
   srcResult: any;
   uniqkey: string;
-  name: any;
-  constructor(private http: HttpClient,private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
+  constructor(private route:Router,private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
 
   onSubmit() {
     alert('Thanks!');
@@ -42,29 +41,30 @@ export class SponsorsComponent implements OnInit {
    this.selectedFile = event.target.files[0];
 
   }
-onUplaod(){
-// 
-}
-  // uploadFile(event) {
-  //   const file = event.target.files[0];
-  //   this.uniqkey = 'PIC' ;
-  //   const filePath =this.uniqkey;;
-  //   const fileRef = this.storage.ref(filePath);
-  //   const task = this.storage.upload(filePath, file);
-
-    
-  //   this.uploadPercent = task.percentageChanges();
- 
-  //   task.snapshotChanges().pipe(
-  //       finalize(() => this.downloadURL = fileRef.getDownloadURL() )
-  //    )
-  //   .subscribe()
-
-  // }
-  Submit(sponsors){
-    console.log(this.name)
+  sponsor={
+    name:'',
+    Description:''
   }
- 
+  submit(){
+    this.data.sponsor(this.sponsor)
+    console.log('done')
+    this.route.navigateByUrl('menu/home')
+  }
+  /////
+  // onFileSelected() {
+  //   const inputNode: any = document.querySelector('#file');
+  
+  //   if (typeof (FileReader) !== 'undefined') {
+  //     const reader = new FileReader();
+  
+  //     reader.onload = (e: any) => {
+  //       this.srcResult = e.target.result;
+  //     };
+  
+  //     reader.readAsArrayBuffer(inputNode.files[0]);
+  //   }
+  // }
+
  
 
 

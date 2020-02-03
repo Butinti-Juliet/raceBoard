@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registeredevents',
@@ -19,7 +20,7 @@ export class RegisteredeventsComponent implements OnInit {
   eventList: Events[];
 
 
-  constructor(private mydata:DataService,private firestore:AngularFirestore)  { 
+  constructor(private route:Router,private mydata:DataService,private firestore:AngularFirestore)  { 
     this.rtnEvents();
   }
 
@@ -58,6 +59,13 @@ export class RegisteredeventsComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+  add(club){
+    this.route.navigate(['/updateEvent'],{queryParams:{key:club.key,name:club.name,add:club.add,close:club.close,open:club.open}})
+  }
+  eventDelete(key) {
+    this.mydata.eventDelete(key);
+    alert("You chose to delete the club");
   }
 
   ngOnInit() {

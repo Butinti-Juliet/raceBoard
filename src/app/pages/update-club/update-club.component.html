@@ -29,13 +29,11 @@
                                 User Name is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <br>
                             <label>Address:</label>
                             <input matInput placeholder="" formControlName="Address"[value]='clubList.address' (input)='clubList.address=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -48,7 +46,6 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <br>
                             <label>Open Hours:</label>
                             <input matInput placeholder="" formControlName="open"[value]='clubList.open' (input)='clubList.open=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -62,7 +59,6 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <br>
                             <label>Close Hours:</label>
                             <input matInput placeholder="" formControlName="close"[value]='clubList.close' (input)='clubList.close=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -73,16 +69,11 @@
                     </div>
                 </div>
             </mat-card-content>
-            <br><br>
             <mat-card-actions>
-<<<<<<< HEAD
-                <button mat-raised-button class="bt" type="submit" (click)="Update()" class="md-button" [disabled]="! updateForm.valid">Update</button>
-=======
                 <!-- <button mat-raised-button class="bt" [disabled]="!updateForm.valid">Update</button><br> -->
                 <button mat-raised-button class="bt" [disabled]="updateForm.valid">Update</button>
                 
               
->>>>>>> a22187c7c0567c9da8765d913c781847a3da50d7
             </mat-card-actions>
 
         </mat-card>

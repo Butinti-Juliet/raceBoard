@@ -27,11 +27,13 @@ import { BookedEventsComponent } from './booked-events/booked-events.component';
 import { RegisteredeventsComponent } from './registeredevents/registeredevents.component';
 import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.component';
 
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+// import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { PreviousEventsComponent } from './previous-events/previous-events.component';
+import { UpdateEventComponent } from './pages/update-event/update-event.component';
+import { UpdateClubComponent } from './pages/update-club/update-club.component';
 import { HttpClientModule } from '@angular/common/http';
-  import { from } from 'rxjs';
+ 
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -45,10 +47,12 @@ import { HttpClientModule } from '@angular/common/http';
     RegisteredeventsComponent,
     RegisteredclubsComponent,
     SponsorsComponent,
-    PreviousEventsComponent
+    PreviousEventsComponent,
+    UpdateEventComponent,
+    UpdateClubComponent
   ],
   imports: [
-    NgxMaterialTimepickerModule,
+    // NgxMaterialTimepickerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

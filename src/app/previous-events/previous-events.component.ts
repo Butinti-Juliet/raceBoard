@@ -4,6 +4,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-previous-events',
@@ -19,17 +20,15 @@ export class PreviousEventsComponent implements OnInit {
 
     name: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30), Validators.required])],
     Description: ['', Validators.required],
-    srcResult: ['', Validators.required],
+    // srcResult: ['', Validators.required],
 
    
   });
   uniqkey: string;
 
-  constructor(private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
+  constructor(private route:Router,private data:DataService,private fb: FormBuilder,private storage: AngularFireStorage) { }
 
-  onSubmit() {
-    alert('Thanks!');
-  }
+  
 
   uploadFile(event) {
     const file = event.target.files[0];
@@ -46,6 +45,17 @@ export class PreviousEventsComponent implements OnInit {
      )
     .subscribe()
   }
+  events={
+    name:'',
+    Description:''
+  }
+  submit(){
+ 
+    this.data.previousEvent(this.events)
+    console.log('done')
+    this.route.navigateByUrl('/menu/home')
+  }
+  
   ngOnInit() {
   }
 

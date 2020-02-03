@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-// import {FormsModule} from '@angular/forms';
-@Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss']
-})
-export class UpdateComponent implements OnInit {
+import { DataService } from 'src/app/services/data.service';
 
-  clubList={
+
+@Component({
+  selector: 'app-update-event',
+  templateUrl: './update-event.component.html',
+  styleUrls: ['./update-event.component.scss']
+})
+export class UpdateEventComponent implements OnInit {
+
+ 
+  
+  eventList={
     key: '',
     name: '',
     address: '',
@@ -41,29 +44,29 @@ export class UpdateComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       console.log(params)
 
-      this.clubList.key = params.key
-      console.log(this.clubList.key),
+      this.eventList.key = params.key
+      console.log(this.eventList.key),
 
-      this.clubList.name = params.name
-      console.log(this.clubList.name),
+      this.eventList.name = params.name
+      console.log(this.eventList.name),
 
-      this.clubList.address = params.add
-      console.log(this.clubList.address),
+      this.eventList.address = params.add
+      console.log(this.eventList.address),
 
-      this.clubList.open = params.open
-      console.log(this.clubList.open)
+      this.eventList.open = params.open
+      console.log(this.eventList.open)
 
-      this.clubList.close = params.close
-      console.log(this.clubList.close)
+      this.eventList.close = params.close
+      console.log(this.eventList.close)
     
     })
   }
   // clubUpdate
-  update(clubList){
-    this.data.clubUpdate(clubList,clubList.key);
+  update(eventList){
+    this.data.eventUpdate(eventList,eventList.key);
     console.log("updated")
-    alert("club updated");
-    this.router.navigateByUrl('home')
+    alert("event updated");
+    this.router.navigateByUrl('menu/registeredevents')
    }
 
 }

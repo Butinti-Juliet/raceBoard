@@ -1,15 +1,17 @@
+// import { Component, OnInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-// import {FormsModule} from '@angular/forms';
-@Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss']
-})
-export class UpdateComponent implements OnInit {
+import { DataService } from 'src/app/services/data.service';
 
+@Component({
+  selector: 'app-update-club',
+  templateUrl: './update-club.component.html',
+  styleUrls: ['./update-club.component.scss']
+})
+export class UpdateClubComponent implements OnInit {
+
+  
   clubList={
     key: '',
     name: '',
@@ -63,7 +65,7 @@ export class UpdateComponent implements OnInit {
     this.data.clubUpdate(clubList,clubList.key);
     console.log("updated")
     alert("club updated");
-    this.router.navigateByUrl('home')
+    this.router.navigateByUrl('menu/registeredclubs')
    }
 
 }

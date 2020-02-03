@@ -1,12 +1,11 @@
+<!-- sponsorForm -->
 <div class="color ">
     <br>
     <br>
 
-    <form [formGroup]="sponsorForm" novalidate>
+    <form [formGroup]="sponsorForm" novalidate (ngSubmit)="submit()">
         <mat-card class="shipping-card mat-elevation-z24">
-            <!-- <mat-card-header>
-                <mat-card-title>Update</mat-card-title>
-            </mat-card-header> -->
+
             <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                 <h3 class="m-0 font-weight-bold text-primary">Sponsors Details</h3>
                 <div class="dropdown no-arrow">
@@ -18,32 +17,37 @@
             <mat-card-content>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field class="full-width">
-                            <mat-icon>camera</mat-icon>
-                            <input matInput type="file" (chnage)="onFileSelected($event)">
-                            <button type="button" (click)="onUplaod"></button>
-                            <!-- <mat-icon>camera</mat-icon>
+                        <!-- <mat-form-field class="full-width"> -->
+                        <mat-icon>camera</mat-icon>
+                        <!-- <input matInput type="file" (chnage)="onFileSelected($event)">
+                            <button type="button" (click)="onUplaod"></button> -->
+                        <!-- <mat-icon>camera</mat-icon>
                             <input formControlName="srcResult" hidden (change)="onFileSelected()" #fileInput type="file" id="file">
                             <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
                             <div>{{ uploadPercent | async }}</div>
                             <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
-                            <mat-error *ngIf="sponsorForm.controls['srcResult'].hasError('required')">
+                        <!-- <mat-error *ngIf="sponsorForm.controls['srcResult'].hasError('required')">
                                 User Image is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
+                            </mat-error> -->
+                        <!-- </mat-form-field> -->
+                        <!-- <mat-form-field class="full-width">
+                            <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
+                            <div>{{ uploadPercent | async }}</div>
+                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+                        </mat-form-field> -->
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <mat-form-field class="full-width">
-                            </mat-form-field>
+                            <!-- <mat-form-field class="full-width">
+                            </mat-form-field> -->
                             <label>Name:</label>
-                            <input matInput placeholder="" formControlName="name">
+                            <input matInput placeholder="" formControlName="name" (input)='sponsor.name=$event.target.value'>
                             <mat-divider></mat-divider>
                             <mat-error *ngIf="sponsorForm.controls['name'].hasError('required')">
-                                User Name is <strong>required</strong>
+                                Sponsor Name is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -53,7 +57,7 @@
                         <mat-form-field class="full-width">
                             <br>
                             <label>Description:</label>
-                            <textarea matInput placeholder="" formControlName="Description"></textarea>
+                            <textarea matInput placeholder="" formControlName="Description" (input)='sponsor.Description=$event.target.value'></textarea>
                             <mat-divider></mat-divider>
                             <mat-error *ngIf=" sponsorForm.controls['Description'].hasError('required')">
                                 Description is <strong>required</strong>
@@ -67,8 +71,8 @@
             </mat-card-content>
             <br><br>
             <mat-card-actions>
-                <button mat-raised-button class="bt" type="submit" (click)="Submit(sponsors)" class="md-button" [disabled]="! sponsorForm.valid">Submit</button>
 
+                <button mat-raised-button class="bt">Submit</button>
             </mat-card-actions>
 
         </mat-card>

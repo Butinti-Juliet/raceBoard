@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../services/data.service';
 import * as Chart from 'chart.js';
 import { MatSort, MatPaginator, MatTableDataSource} from '@angular/material';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,12 +18,12 @@ export class HomeComponent implements OnInit {
 
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) evpaginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
-  
+
   dataSource: any;
+  EventSource:any;
   displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
  
 
@@ -45,8 +46,9 @@ export class HomeComponent implements OnInit {
 
   eventList:any[];
   bookedList:any[];
-  constructor(private mydata:DataService,private firestore:AngularFirestore) { 
-  
+  constructor(private mydata:DataService,private firestore:AngularFirestore,private router: Router) { 
+    // this.rtnEvents();
+   
     this.rtnBooked();
    
 
@@ -81,27 +83,11 @@ export class HomeComponent implements OnInit {
       this.bookedSource = new MatTableDataSource(this.bookedList)
     });
    }
-   updateDoc() {
-    this.mydata.getBokedChanges().subscribe(event=>{
-      this.bookedList=event.map(e=>{
-        return{
-         key:e.payload.doc.id,
-         name: e.payload.doc.data()['name'],
-         add: e.payload.doc.data()['address'],
-         open: e.payload.doc.data()['openingHours'],
-         close: e.payload.doc.data()['closingHours'],
-         photo: e.payload.doc.data()['photoURL'],
-         approved: e.payload.doc.data()['approved'],
-         price: e.payload.doc.data()['price'],
-         tickets: e.payload.doc.data()['tickets'],
-         total: e.payload.doc.data()['total'],
-        
-        }as Events
-      });
-      this.firestore.doc(`bookedEvents/${this.bookedList[0].key}`).update({approved: true});
-      console.log(this.bookedList)
-  });
+   approve(myevents) {
+this.mydata.booking(myevents);
+// console.log(this.mydata.booking(myevents))
   }
+
    clubDelete(key) {
     this.mydata.clubDelete(key);
     alert("You chose to delete the club");
@@ -114,9 +100,10 @@ export class HomeComponent implements OnInit {
     this.mydata.eventDelete(key);
     alert("You chose to delete the event");
   }
-  update(){
-    this.mydata.update(this.clubList,this.clubList[0].key);
-    console.log("updated")
+  clubUpdate(item){
+    
+   
+      this.router.navigate(['/update'], { queryParams:{key: item.key, name: item.name, address: item.add}})
     
    }
  
@@ -141,6 +128,7 @@ export class HomeComponent implements OnInit {
   this. clubOwners();
   this. rtnBooked();
   }
+
   theUser;
   theClub;
  
@@ -285,5 +273,5 @@ applyFilter(filterValue: string) {
   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
   this.dataSource.filter = filterValue;
 }
-      
+
 }

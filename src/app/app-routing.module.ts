@@ -9,11 +9,16 @@ import { RegisteredclubsComponent } from './registeredclubs/registeredclubs.comp
 import { UpdateComponent } from './update/update.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { PreviousEventsComponent } from './previous-events/previous-events.component';
+import { UpdateClubComponent } from './pages/update-club/update-club.component';
+import { UpdateEventComponent } from './pages/update-event/update-event.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
+  // {path: 'home', component: HomeComponent},
+  // {path: 'update', component: UpdateComponent},
+  {path:'updateClub', component:UpdateClubComponent},
+  {path:'updateEvent', component:UpdateEventComponent},
   {path: 'menu', component : MenuComponent, children:[
   
     {path: 'home', component: HomeComponent},
@@ -21,8 +26,8 @@ const routes: Routes = [
     {path: 'BookedEvents', component: BookedEventsComponent},
     {path: 'Registeredevents', component: RegisteredeventsComponent},
     {path: 'previousEvents', component: PreviousEventsComponent},
-    {path: 'sponsors', component: SponsorsComponent},
-    {path: 'update', component: UpdateComponent}
+    {path: 'sponsors', component: SponsorsComponent}
+    // {path: 'update', component: UpdateComponent}
     
   ]}
 ];

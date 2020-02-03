@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { DataService } from '../services/data.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registeredclubs',
@@ -18,12 +19,13 @@ export class RegisteredclubsComponent implements OnInit {
   
   dataSource: any;
   displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
-  clubList: Club[];
+  clubList;
  
+  // this.router.navigateByUrl('registration');
 
-
-  constructor(private mydata:DataService,private firestore:AngularFirestore) { 
+  constructor(private route:Router,private mydata:DataService,private firestore:AngularFirestore) { 
     this.rtnClub();
+   
   }
 
 
@@ -44,7 +46,7 @@ export class RegisteredclubsComponent implements OnInit {
           add: e.payload.doc.data()['address'],
           open: e.payload.doc.data()['openingHours'],
           close: e.payload.doc.data()['closingHours'],
-          photo: e.payload.doc.data()['photoURL'],
+          // photo: e.payload.doc.data()['photoURL'],
         }as Club;
       });
       console.log(this.clubList)
@@ -61,6 +63,13 @@ export class RegisteredclubsComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+  add(club){
+    this.route.navigate(['/updateClub'],{queryParams:{key:club.key,name:club.name,add:club.add,close:club.close,open:club.open}})
+  }
+  clubDelete(key) {
+    this.mydata.clubDelete(key);
+    alert("You chose to delete the club");
   }
   ngOnInit() {
   }
