@@ -33,6 +33,7 @@ import { PreviousEventsComponent } from './previous-events/previous-events.compo
 import { UpdateEventComponent } from './pages/update-event/update-event.component';
 import { UpdateClubComponent } from './pages/update-club/update-club.component';
 import { HttpClientModule } from '@angular/common/http';
+import * as firebase from 'firebase';
  
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -87,4 +88,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){         
+    firebase.initializeApp(environment.firebase);
+  }
+ }

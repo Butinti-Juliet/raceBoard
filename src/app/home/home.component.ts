@@ -16,16 +16,13 @@ export class HomeComponent implements OnInit {
 
   
 
-  
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatPaginator, {static: true}) evpaginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
+  
   dataSource: any;
-  EventSource:any;
-  displayedColumns: string[] = ['Clubname', 'Address', 'Opening time', 'Closing time','Action'];
- 
+  displayedColumns: string[] = ['Name', 'Address', 'Email', 'Age','Gender'];
 
  
   MatTableEventSource: any
@@ -43,7 +40,12 @@ export class HomeComponent implements OnInit {
   e: number=0;
   f: number=0;
   g: number=0;
+  h: number=0;
+  i: number=0;
+  j: number=0;
+  k: number=0;
 
+  userList:any[];
   eventList:any[];
   bookedList:any[];
   constructor(private mydata:DataService,private firestore:AngularFirestore,private router: Router) { 
@@ -108,21 +110,32 @@ this.mydata.booking(myevents);
    }
  
 
+   rtnUsers(){
+    this.mydata.getUserChanges().subscribe(data=>{
+      this.userList=data.map(e=>{
+        return{
+          key:e.payload.doc.id,
+          name: e.payload.doc.data()['displayName'],
+          add: e.payload.doc.data()['address'],
+          email: e.payload.doc.data()['Email'],
+          gender: e.payload.doc.data()['gender'],
+          age: e.payload.doc.data()['Age'],
+        }as Users;
+      });
+      console.log(this.userList)
  
-  //  onUpdate(item) {
-  //   this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, open: item.open, close: item.close } })
-  // }
-  // update(item){
-//   item.name="Mango";
-//   item.price=10;
-//   item.type="Fruits";
-//   this.itemDoc = this.afs.doc<Item>('Grocery/3AnqLWbS2SVh4rtDQSHv');
-//   this.itemDoc.update(item);
-// }
+      this.dataSource = new MatTableDataSource(this.userList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+
+   }
+
+   
   ngOnInit() {
 
   
-  
+  this.rtnUsers();
   this.genderDB();
   this.ageDB();
   this. clubOwners();
@@ -162,37 +175,57 @@ this.mydata.booking(myevents);
         let age = data[i].Age;
        
         // calculation for gender
-        if (age == '10-21') {
+        if (age >= 15 &&age<=20  ) {
           this.a = this.a + 1
           console.log(this.a)
-        } else if (age == '26-31') {
+        } else if (age >= 21 &&age<=25 ) {
           this.b = this.b + 1
           console.log(this.b)
         }
-        else if (age == '31-38') {
+        else if (age >= 26 &&age<=30 ) {
           this.c = this.c + 1
           console.log(this.c)
         }
-        else if (age == '38-45') {
+        else if (age >= 31 &&age<=35 ) {
           this.d = this.d + 1
           console.log(this.d)
         }
-        else if (age == '45-50') {
+        else if (age >= 36 &&age<=40 ) {
           this.e = this.e + 1
           console.log(this.e)
         }
-        else {
+        else if (age >= 41 &&age<=45 ) {
           this.f = this.f + 1
           console.log(this.f)
+        }
+        else if (age >= 46 &&age<=50 ) {
+          this.g = this.g + 1
+          console.log(this.g)
+        }
+        else if (age >= 51 &&age<=55 ) {
+          this.h = this.h + 1
+          console.log(this.h)
+        }
+        else if (age >= 56 &&age<=60 ) {
+          this.i = this.i + 1
+          console.log(this.i)
+        }
+        else if (age >= 61 &&age<=70 ) {
+          this.j = this.j + 1
+          console.log(this.j)
+        }
+        else {
+          this.k = this.k + 1
+          console.log(this.k)
         }
       
     this.myChart = new Chart('myChart', {
       type: 'bar',
       data: {
-          labels: ['10-21', '21-26', '26-31', '31-38', '38-45', '45-50','50+'],
-          datasets: [{
-              label: '# of age group',
-              data: [this.a, this.b, this.c, this.d, this.e, this.f],
+        labels: ['15-20', '21-25', '26-30', '31-35', '36-40', '41-45','46-50','51-55','56-60','60+'],
+        datasets: [{
+            label: '# of age group',
+            data: [this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',

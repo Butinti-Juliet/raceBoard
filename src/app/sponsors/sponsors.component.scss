@@ -32,6 +32,37 @@ h3 {
     color: white;
     background-color: #11C2D4;
 }
-.bt{
-    width:100%;
+
+.bt {
+    width: 100%;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload ion-icon {
+    width: 80px;
+    cursor: pointer;
+}
+
+.img-circle {
+    top: 10px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    border: 1px solid #11C2D4;
+}
+
+.upload {
+    margin-left: 25%;
+    margin-top: -25%;
+}
+
+mat-icon {
+    margin-left: 70px;
+    height: 50px;
 }

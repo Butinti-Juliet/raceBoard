@@ -17,24 +17,13 @@
             <mat-card-content>
                 <div class="row">
                     <div class="col">
-                        <!-- <mat-form-field class="full-width"> -->
-                        <mat-icon>camera</mat-icon>
-                        <!-- <input matInput type="file" (chnage)="onFileSelected($event)">
-                            <button type="button" (click)="onUplaod"></button> -->
-                        <!-- <mat-icon>camera</mat-icon>
-                            <input formControlName="srcResult" hidden (change)="onFileSelected()" #fileInput type="file" id="file">
-                            <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
-                            <div>{{ uploadPercent | async }}</div>
-                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
-                        <!-- <mat-error *ngIf="sponsorForm.controls['srcResult'].hasError('required')">
-                                User Image is <strong>required</strong>
-                            </mat-error> -->
-                        <!-- </mat-form-field> -->
-                        <!-- <mat-form-field class="full-width">
-                            <input formControlName="srcResult" type="file" (change)="uploadFile($event)" />
-                            <div>{{ uploadPercent | async }}</div>
-                            <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
-                        </mat-form-field> -->
+                        <img class="img-circle" src="{{imageUrl}}">
+                        <div class="image-upload">
+
+                            <mat-icon (click)="input.click()" name="camera" fill="clear">camera</mat-icon>
+                            <input type="file" (change)="onUpload($event)" formControlName="srcResult" (input)='sponsor.srcResult=$event.target.value' #input />
+
+                        </div>
                     </div>
                 </div>
                 <br>

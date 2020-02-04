@@ -30,7 +30,7 @@ private eventDoc: AngularFirestoreDocument<Event>;
     
   }
   getUserChanges() {
-    return this.db.collection('users').valueChanges();
+    return this.db.collection('users').snapshotChanges();
     
   }
   // delete(key){

@@ -1,9 +1,10 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-
+        <br>
         <mat-toolbar class="mn" color="primary">
-            <img src="/assets/images__1_-removebg-preview.png" class="img">&nbsp;Fun Race DashBoard</mat-toolbar>
 
+            <img src="/assets/dashLog.png" class="img"></mat-toolbar>
+        <br>
         <mat-nav-list>
 
             <a mat-list-item routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
@@ -59,7 +60,7 @@
                 <span style="margin-left: 20px;">Sponsors</span>
 
             </a>
-          
+
 
             <!-- <a mat-list-item routerLink="userTable" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                 <i class="material-icons">library_books</i>
