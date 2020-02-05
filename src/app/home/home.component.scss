@@ -42,6 +42,7 @@ table {
 
 h3 {
     text-align: center;
+    color: grey;
 }
 
 mat-card {
@@ -57,4 +58,20 @@ mat-card {
 
 ng-container {
     font-size: 25px;
+}
+
+table {
+    color: grey;
+}
+
+mat-divider {
+    color: grey;
+}
+
+mat-icon {
+    color: grey;
+}
+
+mat-paginator {
+    color: grey;
 }

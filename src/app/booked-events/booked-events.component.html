@@ -27,10 +27,12 @@
                         <td mat-cell *matCellDef="let booked "> {{booked.name}} </td>
                     </ng-container>
 
+
                     <ng-container matColumnDef="Address">
                         <th mat-header-cell *matHeaderCellDef>Address </th>
                         <td mat-cell *matCellDef="let booked"> {{booked.add}} </td>
                     </ng-container>
+
 
                     <ng-container matColumnDef="Price">
                         <th mat-header-cell *matHeaderCellDef> Price </th>
@@ -50,8 +52,8 @@
                     <ng-container matColumnDef="Payed">
                         <th mat-header-cell *matHeaderCellDef> Payed </th>
                         <td mat-cell *matCellDef="let booked">
-                            <mat-icon (click)="updateDoc(booked.key)">check_circle</mat-icon> &nbsp;
-                            <mat-icon>phonelink_erase</mat-icon>
+                            <mat-icon class="cor" (click)="updateDoc(booked.key)">check_circle</mat-icon> &nbsp;
+                            <mat-icon class="ers">phonelink_erase</mat-icon>
                         </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

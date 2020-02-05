@@ -66,7 +66,7 @@ export class UpdateEventComponent implements OnInit {
     this.data.eventUpdate(eventList,eventList.key);
     console.log("updated")
     alert("event updated");
-    this.router.navigateByUrl('menu/registeredevents')
+    this.router.navigateByUrl('menu/Registeredevents')
    }
 
 }

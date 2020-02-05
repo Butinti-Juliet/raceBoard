@@ -1,5 +1,6 @@
 mat-card {
     width: 100%;
+    color: grey;
     /* height: 600px; */
     // margin: auto;
     // vertical-align: middle;
@@ -27,6 +28,11 @@ h3 {
     color: white;
     background-color: #11C2D4;
 }
-.bt{
+
+.bt {
     width: 100%;
+}
+
+mat-error {
+    color: black;
 }

@@ -67,7 +67,9 @@ export class RegisteredeventsComponent implements OnInit {
     this.mydata.eventDelete(key);
     alert("You chose to delete the club");
   }
-
+  addEv(){
+    this.route.navigateByUrl('/menu/previousEvents')
+  }
   ngOnInit() {
   }
 

@@ -1,5 +1,6 @@
 mat-card {
     width: 100%;
+    color: grey;
     /* height: 600px; */
     // margin: auto;
     // vertical-align: middle;
@@ -63,6 +64,10 @@ h3 {
 }
 
 mat-icon {
-    margin-left: 70px;
+    margin-left: 58px;
     height: 50px;
+}
+
+mat-error {
+    color: black;
 }
