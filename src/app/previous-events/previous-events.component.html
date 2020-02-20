@@ -16,12 +16,48 @@
             <mat-card-content>
                 <div class="row">
                     <div class="col">
-                        <img class="img-circle" src="{{imageUrl}}">
+                        <!-- <img class="img-circle" src="{{imageUrl}}">
                         <div class="image-upload">
 
                             <mat-icon (click)="input.click()" name="camera" fill="clear">camera</mat-icon>
 
                             <input type="file" (change)="onUpload($event)" formControlName="srcResult" (input)='events.srcResult=$event.target.value' #input />
+                        </div> -->
+                        <!-- <img class="img-circle" src="{{imageUrl}}">
+                        <div class="image-upload">
+
+                            <mat-icon (click)="input.click()" name="camera" fill="clear">camera</mat-icon>
+                            <input type="file" (change)="onUpload($event)" formControlName="srcResult" (input)='sponsor.srcResult=$event.target.value' #input />
+
+                        </div> -->
+                        <input type="file" (change)="upload($event)" style="display:none" accept="image/png" #fileinput formControlName="srcResult" (input)='sponsor.srcResult=$event.target.value'>
+                        <!-- <ion-icon name="attach" class="ion-float-right" > </ion-icon> -->
+
+                        <div class="uploadfilecontainer" (click)="fileinput.click()">
+                            <!-- <mat-icon (click)="input.click()" name="camera" fill="clear">camera</mat-icon>-->
+                            <!-- <input type="file" (change)="onUpload($event)" formControlName="srcResult" (input)='events.srcResult=$event.target.value' #input /> -->
+                        </div>
+
+                        <div class="files-list">
+                            <p>{{fileName}}</p>
+                            <!-- 
+                            <button class="delete-file" (click)="openBottomSheet()">
+                                <img src="../../assets/unnamed-removebg-preview.png">
+                                </button> -->
+                        </div>
+                        <!-- <div class="files-list" *ngFor="let file of files;let i= index">
+                            <p> {{ file }} </p>
+                             <button class="delete-file" (click)="deleteAttachment(i)">
+                                <img src="../../assets/Recycle_Bin_Full.png">
+                              </button> 
+                        </div> -->
+
+                        <div class="files-list" *ngIf='juiletFile != ""'>
+                            <p> {{juiletFile}} </p>
+
+                            <!-- <button class="delete-file" (click)="deleteAttachment(i)">
+                                <img src="../../assets/images-removebg-preview (1).png">
+                              </button> -->
                         </div>
                     </div>
                 </div>
@@ -51,6 +87,20 @@
                         </mat-form-field>
                     </div>
                 </div>
+
+                <!-- <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <br>
+                            <label>URL:</label>
+                            <input matInput placeholder="" formControlName="url" (input)='sponsor.url=$event.target.value'>
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf=" sponsorForm.controls['url'].hasError('required')">
+                                Url is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div> -->
 
 
 

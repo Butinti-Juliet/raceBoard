@@ -23,38 +23,52 @@
                 <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
 
                     <ng-container matColumnDef="Name">
-                        <th mat-header-cell *matHeaderCellDef> Event name </th>
-                        <td mat-cell *matCellDef="let booked "> {{booked.name}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Event name </th>
+                            <td mat-cell *matCellDef="let booked "> {{booked.name}} </td>
+                        </tr>
                     </ng-container>
 
 
                     <ng-container matColumnDef="Address">
-                        <th mat-header-cell *matHeaderCellDef>Address </th>
-                        <td mat-cell *matCellDef="let booked"> {{booked.add}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef>Address </th>
+                            <td mat-cell *matCellDef="let booked"> {{booked.add}} </td>
+                        </tr>
                     </ng-container>
 
 
                     <ng-container matColumnDef="Price">
-                        <th mat-header-cell *matHeaderCellDef> Price </th>
-                        <td mat-cell *matCellDef="let booked "> R{{booked.price}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Price </th>
+                            <td mat-cell *matCellDef="let booked "> R{{booked.price}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Tickets">
-                        <th mat-header-cell *matHeaderCellDef>Tickets</th>
-                        <td mat-cell *matCellDef="let booked"> {{booked.tickets}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef>Tickets</th>
+                            <td mat-cell *matCellDef="let booked"> {{booked.tickets}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Total">
-                        <th mat-header-cell *matHeaderCellDef> Total</th>
-                        <td mat-cell *matCellDef="let booked"> R{{booked.total}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Total</th>
+                            <td mat-cell *matCellDef="let booked"> R{{booked.total}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Payed">
-                        <th mat-header-cell *matHeaderCellDef> Payed </th>
-                        <td mat-cell *matCellDef="let booked">
-                            <mat-icon class="cor" (click)="updateDoc(booked.key)">check_circle</mat-icon> &nbsp;
-                            <mat-icon class="ers">phonelink_erase</mat-icon>
-                        </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Payed </th>
+                            <td mat-cell *matCellDef="let booked">
+                                <!-- <mat-icon class="cor" (click)="updateDoc(booked.key)">done</mat-icon> &nbsp; -->
+                                <img src="/assets/tick.png" (click)="updateDoc(booked.key)">&nbsp;
+                                <img src="/assets/cross.png">
+                                <!-- <mat-icon class="ers">phonelink_erase</mat-icon> -->
+                            </td>
+                        </tr>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let booked; columns:  displayedColumns"></tr>

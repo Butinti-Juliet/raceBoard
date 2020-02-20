@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { DataService } from '../services/data.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class RegisteredclubsComponent implements OnInit {
  
   // this.router.navigateByUrl('registration');
 
-  constructor(private route:Router,private mydata:DataService,private firestore:AngularFirestore) { 
+  constructor(private route:Router,private mydata:DataService,private firestore:AngularFirestore,public dialog: MatDialog) { 
     this.rtnClub();
    
   }
@@ -70,7 +70,22 @@ export class RegisteredclubsComponent implements OnInit {
   clubDelete(key) {
     this.mydata.clubDelete(key);
     alert("You chose to delete the club");
+  // this.openDialog();
   }
+
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(RegisteredclubsComponent, {
+  //     width: '250px',
+     
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+     
+  //   });
+  // }
+
+
   ngOnInit() {
   }
 

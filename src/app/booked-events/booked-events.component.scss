@@ -46,7 +46,7 @@ h3 {
 
 mat-card {
     background-color: white;
-    border: 2px solid white;
+    border: 1px solid whitesmoke;
 }
 
 .pops {
@@ -70,6 +70,9 @@ ng-container {
     background-color: rgb(25, 201, 25);
 }
 
+// .cor {
+//     background-color: rgb(25, 201, 25);
+// }
 mat-divider {
     color: grey;
 }
@@ -88,4 +91,20 @@ mat-icon {
 
 mat-paginator {
     color: grey;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+img {
+    zoom: 0.04;
 }

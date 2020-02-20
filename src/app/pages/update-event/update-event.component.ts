@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../services/data.service';
+
+
+
+
 
 
 @Component({

@@ -46,7 +46,7 @@ h3 {
 
 mat-card {
     background-color: white;
-    border: 2px solid white;
+    border: 1px solid whitesmoke;
 }
 
 .pops {
@@ -78,4 +78,40 @@ mat-icon {
 
 mat-paginator {
     color: grey;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.de {
+    color: rgb(180, 35, 35);
+}
+
+.up {
+    color: rgb(0, 119, 255);
+}
+
+.a {
+    color: black;
 }

@@ -22,18 +22,24 @@
                 <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
 
                     <ng-container matColumnDef="Eventname">
-                        <th mat-header-cell *matHeaderCellDef> Event name </th>
-                        <td mat-cell *matCellDef="let event "> {{event.name}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Event name </th>
+                            <td mat-cell *matCellDef="let event "> {{event.name}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Address">
-                        <th mat-header-cell *matHeaderCellDef>Address </th>
-                        <td mat-cell *matCellDef="let event"> {{event.add}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef>Address </th>
+                            <td mat-cell *matCellDef="let event"> {{event.add}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Distance">
-                        <th mat-header-cell *matHeaderCellDef> Distance </th>
-                        <td mat-cell *matCellDef="let event "> {{event.km}}km </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Distance </th>
+                            <td mat-cell *matCellDef="let event "> {{event.km}}km </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Opening time">
@@ -42,18 +48,23 @@
                     </ng-container>
 
                     <ng-container matColumnDef="Closing time">
-                        <th mat-header-cell *matHeaderCellDef> Closing time </th>
-                        <td mat-cell *matCellDef="let event"> {{event.close}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Closing time </th>
+                            <td mat-cell *matCellDef="let event"> {{event.close}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let event">
-                            <p class="p">{{event.key}}</p>
-                            <mat-icon (click)="eventDelete(event.key)">delete</mat-icon>&nbsp;
-                            <mat-icon (click)="add(event)">update</mat-icon>&nbsp;
-                            <mat-icon (click)="addEv()">plus_one</mat-icon>
-                        </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let event">
+                                <p class="p">{{event.key}}</p>
+                                <!-- <p>What's your favorite animal?</p> -->
+                                <mat-icon class="de" (click)="eventDelete(event.key)">delete</mat-icon>&nbsp;
+                                <mat-icon class="up" (click)="add(event)">update</mat-icon>&nbsp;
+                                <mat-icon class="a" (click)="addEv()">plus_one</mat-icon>
+                            </td>
+                        </tr>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

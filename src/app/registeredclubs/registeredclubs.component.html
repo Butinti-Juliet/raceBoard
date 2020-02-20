@@ -21,36 +21,48 @@
                 <table mat-table [dataSource]="dataSource" matSort aria-label="Elements">
 
                     <ng-container matColumnDef="Clubname">
-                        <th mat-header-cell *matHeaderCellDef> Club name </th>
-                        <td mat-cell *matCellDef="let club "> {{club.name}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Club name </th>
+                            <td mat-cell *matCellDef="let club "> {{club.name}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Address">
-                        <th mat-header-cell *matHeaderCellDef>Address </th>
-                        <td mat-cell *matCellDef="let club"> {{club.add}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef>Address </th>
+                            <td mat-cell *matCellDef="let club"> {{club.add}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Opening time">
-                        <th mat-header-cell *matHeaderCellDef> Opening time </th>
-                        <td mat-cell *matCellDef="let club"> {{club.open}} </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Opening time </th>
+                            <td mat-cell *matCellDef="let club"> {{club.open}} </td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Closing time">
-                        <th mat-header-cell *matHeaderCellDef> Closing time </th>
-                        <td mat-cell *matCellDef="let club"> {{club.close}}</td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Closing time </th>
+                            <td mat-cell *matCellDef="let club"> {{club.close}}</td>
+                        </tr>
                     </ng-container>
 
                     <ng-container matColumnDef="Action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <!-- <td mat-cell *matCellDef="let club" >  </td> -->
-                        <td mat-cell *matCellDef="let club">
-                            <p class="p">{{club.key}}</p>&nbsp;
-                            <mat-icon (click)="clubDelete(club.key)">delete</mat-icon>&nbsp;
-                            <mat-icon (click)="add(club)">update</mat-icon>
-                            <!-- <button (click)="onDelete(club.key)">Delete</button> &nbsp; -->
-                            <!-- <button>Update</button> -->
-                        </td>
+                        <tr>
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <!-- <td mat-cell *matCellDef="let club" >  </td> -->
+                            <td mat-cell *matCellDef="let club">
+                                <p class="p">{{club.key}}</p>&nbsp;
+                                <!-- You chose to delete the club -->
+                                <!-- <p>What's your favorite animal?</p> -->
 
+                                <mat-icon class="de" (click)="clubDelete(club.key)">delete</mat-icon>&nbsp;
+                                <mat-icon class="up" (click)="add(club)">update</mat-icon>
+                                <!-- <button (click)="onDelete(club.key)">Delete</button> &nbsp; -->
+                                <!-- <button>Update</button> -->
+                            </td>
+                        </tr>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

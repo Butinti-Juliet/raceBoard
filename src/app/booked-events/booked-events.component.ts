@@ -54,7 +54,7 @@ export class BookedEventsComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
    }
-   updateDoc() {
+   updateDoc(key) {
     this.mydata.getBokedChanges().subscribe(event=>{
       this.bookedList=event.map(e=>{
         return{

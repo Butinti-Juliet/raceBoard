@@ -1,6 +1,9 @@
 mat-card {
     width: 100%;
     color: grey;
+    border: 1px solid whitesmoke;
+    padding: 0px 30px 0px 0px;
+    // vertical-align: middle;
     /* height: 600px; */
     // margin: auto;
     // vertical-align: middle;
@@ -19,6 +22,7 @@ mat-card {
 
 h3 {
     text-align: center;
+    color: black;
 }
 
 .mat-fab,
@@ -31,8 +35,23 @@ h3 {
 
 .bt {
     width: 100%;
+    text-align: center;
 }
 
 mat-error {
     color: black;
+}
+
+input {
+    border-bottom: 1px solid #ddd;
+}
+
+label {
+    color: black;
+}
+
+.color {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-registeredevents',
@@ -20,7 +21,7 @@ export class RegisteredeventsComponent implements OnInit {
   eventList: Events[];
 
 
-  constructor(private route:Router,private mydata:DataService,private firestore:AngularFirestore)  { 
+  constructor(private alerts: AlertsService,private route:Router,private mydata:DataService,private firestore:AngularFirestore,public dialog: MatDialog)  { 
     this.rtnEvents();
   }
 
@@ -65,12 +66,27 @@ export class RegisteredeventsComponent implements OnInit {
   }
   eventDelete(key) {
     this.mydata.eventDelete(key);
-    alert("You chose to delete the club");
+    // this.alerts.setMessage('Please save all the changes before closing','warn');
+    alert("You chose to delete the event");
+      // this.openAlertDialog();
   }
+  // openAlertDialog() {
+  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent,{
+  //     data:{
+  //       message: 'HelloWorld',
+  //       buttonText: {
+  //         cancel: 'Done'
+  //       }
+  //     },
+  //   });
+  // }
   addEv(){
     this.route.navigateByUrl('/menu/previousEvents')
   }
   ngOnInit() {
+
+    // this.alerts.setDefaults('timeout',1);
+    //    this.alerts.setConfig('warn','icon','warning');
   }
 
 }

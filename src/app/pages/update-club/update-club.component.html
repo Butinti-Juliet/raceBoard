@@ -1,5 +1,5 @@
 <!-- </div>  -->
-<div class="color ">
+<div class="color">
     <br>
     <br>
 
@@ -17,6 +17,19 @@
             <br>
             <br>
             <mat-card-content>
+                <!-- <div class="row">
+                    <div class="col">
+
+                        <mat-form-field class="full-width">
+                            <label>Name:</label>
+                            <input matInput placeholder="" formControlName="name" [value]='clubList.name' (input)='clubList.name=$event.target.value'>
+                            <mat-divider></mat-divider>
+                            <mat-error *ngIf="updateForm.controls['name'].hasError('required')">
+                                User Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div> -->
                 <div class="row">
                     <div class="col">
 
@@ -32,20 +45,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-
                         <mat-form-field class="full-width">
-                            <label>Name:</label>
-                            <input matInput placeholder="" formControlName="name" [value]='clubList.name' (input)='clubList.name=$event.target.value'>
-                            <mat-divider></mat-divider>
-                            <mat-error *ngIf="updateForm.controls['name'].hasError('required')">
-                                User Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="full-width">
+                            <br>
                             <label>Address:</label>
                             <input matInput placeholder="" formControlName="Address" [value]='clubList.address' (input)='clubList.address=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -55,9 +56,10 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Open Hours:</label>
                             <input matInput placeholder="" formControlName="open" [value]='clubList.open' (input)='clubList.open=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -66,11 +68,12 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <br>
                             <label>Close Hours:</label>
                             <input matInput placeholder="" formControlName="close" [value]='clubList.close' (input)='clubList.close=$event.target.value'>
                             <mat-divider></mat-divider>
@@ -81,6 +84,9 @@
                     </div>
                 </div>
             </mat-card-content>
+            <br>
+            <br>
+
             <mat-card-actions>
                 <!-- <button mat-raised-button class="bt" [disabled]="!updateForm.valid">Update</button><br> -->
                 <button mat-raised-button class="bt" [disabled]="updateForm.valid">Update</button>
