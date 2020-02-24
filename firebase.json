@@ -1,17 +1,19 @@
 {
-    "storage": {
-        "rules": "running"
-    },
-    "hosting": {
-        "public": "dist/dashBoa",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [{
-            "source": "**",
-            "destination": "/index.html"
-        }]
-    }
+  "storage": {
+    "rules": "running"
+  },
+  "hosting": {
+    "public": "dist/dashBoa",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

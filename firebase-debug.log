@@ -1,0 +1,43 @@
+[debug] [2020-02-20T07:20:42.005Z] ----------------------------------------------------------------------
+[debug] [2020-02-20T07:20:42.008Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Codetribe\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-02-20T07:20:42.008Z] CLI Version:   7.12.1
+[debug] [2020-02-20T07:20:42.008Z] Platform:      win32
+[debug] [2020-02-20T07:20:42.008Z] Node Version:  v10.16.0
+[debug] [2020-02-20T07:20:42.009Z] Time:          Wed Feb 19 2020 23:20:42 GMT-0800 (Pacific Standard Time)
+[debug] [2020-02-20T07:20:42.009Z] ----------------------------------------------------------------------
+[debug] [2020-02-20T07:20:42.009Z] 
+[debug] [2020-02-20T07:20:42.018Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-20T07:20:42.019Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Codetribe\dashBoa
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using runningclub-46ede.
+[debug] [2020-02-20T07:21:05.617Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/runningclub-46ede  
+ 
+[debug] [2020-02-20T07:21:06.146Z] <<< HTTP RESPONSE 200
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

@@ -1,13 +1,17 @@
-<!-- </div>  -->
 <div class="color">
     <br>
     <br>
 
     <form [formGroup]=" updateForm" novalidate (ngSubmit)="update(clubList)">
         <mat-card class="shipping-card mat-elevation-z24">
-            <!-- <mat-card-header>
-                <mat-card-title>Update</mat-card-title>
-            </mat-card-header> -->
+
+
+
+            <a [routerLink]="['/menu/registeredclubs']">
+                <mat-icon>navigate_before</mat-icon>
+            </a>
+
+            <br>
             <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                 <h3 class="m-0 font-weight-bold text-primary">Update Club Details</h3>
                 <div class="dropdown no-arrow">
@@ -16,27 +20,16 @@
             </div>
             <br>
             <br>
+            <br>
             <mat-card-content>
-                <!-- <div class="row">
-                    <div class="col">
 
-                        <mat-form-field class="full-width">
-                            <label>Name:</label>
-                            <input matInput placeholder="" formControlName="name" [value]='clubList.name' (input)='clubList.name=$event.target.value'>
-                            <mat-divider></mat-divider>
-                            <mat-error *ngIf="updateForm.controls['name'].hasError('required')">
-                                User Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div> -->
                 <div class="row">
                     <div class="col">
 
                         <mat-form-field class="full-width">
-                            <label>Name:</label>
+                            <label>Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input matInput placeholder="" formControlName="name" [value]='clubList.name' (input)='clubList.name=$event.target.value'>
-                            <mat-divider></mat-divider>
+                            <!-- <mat-divider></mat-divider> -->
                             <mat-error *ngIf="updateForm.controls['name'].hasError('required')">
                                 User Name is <strong>required</strong>
                             </mat-error>
@@ -47,9 +40,9 @@
                     <div class="col">
                         <mat-form-field class="full-width">
                             <br>
-                            <label>Address:</label>
+                            <label>Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input matInput placeholder="" formControlName="Address" [value]='clubList.address' (input)='clubList.address=$event.target.value'>
-                            <mat-divider></mat-divider>
+                            <!-- <mat-divider></mat-divider> -->
                             <mat-error *ngIf=" updateForm.controls['Address'].hasError('required')">
                                 Address is <strong>required</strong>
                             </mat-error>
@@ -60,9 +53,9 @@
                     <div class="col">
                         <mat-form-field class="full-width">
                             <br>
-                            <label>Open Hours:</label>
+                            <label>Open Hours:</label>&nbsp;&nbsp;
                             <input matInput placeholder="" formControlName="open" [value]='clubList.open' (input)='clubList.open=$event.target.value'>
-                            <mat-divider></mat-divider>
+                            <!-- <mat-divider></mat-divider> -->
                             <mat-error *ngIf="updateForm.controls['open'].hasError('required')">
                                 Open time is <strong>required</strong>
                             </mat-error>
@@ -74,9 +67,9 @@
                     <div class="col">
                         <mat-form-field class="full-width">
                             <br>
-                            <label>Close Hours:</label>
+                            <label>Close Hours:</label>&nbsp;&nbsp;
                             <input matInput placeholder="" formControlName="close" [value]='clubList.close' (input)='clubList.close=$event.target.value'>
-                            <mat-divider></mat-divider>
+                            <!-- <mat-divider></mat-divider> -->
                             <mat-error *ngIf=" updateForm.controls['close'].hasError('required')">
                                 Close is <strong>required</strong>
                             </mat-error>
@@ -88,7 +81,7 @@
             <br>
 
             <mat-card-actions>
-                <!-- <button mat-raised-button class="bt" [disabled]="!updateForm.valid">Update</button><br> -->
+
                 <button mat-raised-button class="bt" [disabled]="updateForm.valid">Update</button>
 
 
@@ -97,3 +90,55 @@
         </mat-card>
     </form>
 </div>
+
+<!-- <div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class=" title">Update Club Details</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]=" updateForm" novalidate (ngSubmit)="update(clubList)">
+                        <div class="row">
+                            <div class="col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label>Name:</label>
+                                    <input style="border: 1px solid #11C2D4; " type=" text " />
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-3 px-md-1 ">
+                                <div class=" form-group ">
+                                    <label>Address:</label>
+                                    <input style="border: 1px solid #11C2D4; " type="text " />
+                                </div>
+                            </div>
+                            <div class="col-md-4 pl-md-1 ">
+                                <div class=" form-group ">
+                                    <label>Open Hours:</label>
+                                    <input style="border: 1px solid #11C2D4; " type="text " />
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-6 pr-md-1 ">
+                                <div>
+                                    <label>Close Hours:</label>
+                                    <input style="border: 1px solid #11C2D4;" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <mat-card-actions>
+
+                    <button mat-raised-button class="bt" [disabled]="updateForm.valid">Update</button>
+
+
+                </mat-card-actions>
+            </div>
+        </div>
+    </div>
+</div> -->

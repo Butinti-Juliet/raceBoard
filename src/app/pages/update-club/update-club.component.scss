@@ -3,17 +3,10 @@ mat-card {
     color: grey;
     border: 1px solid whitesmoke;
     padding: 0px 30px 0px 0px;
-    // vertical-align: middle;
-    /* height: 600px; */
-    // margin: auto;
-    // vertical-align: middle;
-    // top: 100px;
-    /* border-radius: 10%; */
 }
 
 .full-width {
     width: 100%;
-    /* color: white; */
 }
 
 .md-button {
@@ -40,12 +33,12 @@ h3 {
 
 mat-error {
     color: black;
+    font-size: 11px;
 }
 
-input {
-    border-bottom: 1px solid #ddd;
-}
-
+// input {
+//     border-bottom: 1px solid #ddd;
+// }
 label {
     color: black;
 }
@@ -54,4 +47,21 @@ label {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+input {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    width: 50%;
+    margin-right: 40px;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+
+mat-icon {
+    color: black;
+    margin-right: 650px;
 }
