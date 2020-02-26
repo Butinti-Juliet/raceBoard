@@ -24,8 +24,16 @@ h3 {
 .mat-flat-button,
 .mat-mini-fab,
 .mat-raised-button {
-    color: white;
-    background-color: #11C2D4;
+    border-radius: 25px;
+    height: 50px;
+    color: black;
+    // background-color: #11C2D4;
+    background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #11C2D4, #F5F5F5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, rgb(40, 172, 187), #F5F5F5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .bt {
@@ -37,5 +45,6 @@ mat-card {
 }
 
 mat-error {
-    color: black;
+    color: red;
+    font-size: 11px;
 }

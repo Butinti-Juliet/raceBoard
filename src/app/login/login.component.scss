@@ -319,6 +319,7 @@ iframe {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 177px 130px 33px 95px;
+    padding-top: 10px;
 }
 
 
@@ -331,6 +332,7 @@ iframe {
 
 .login100-pic img {
     max-width: 100%;
+    margin-top: 40px;
 }
 
 
@@ -462,12 +464,12 @@ mat-error {
     // font-family: Montserrat-Bold;
     font-size: 15px;
     line-height: 1.5;
-    color: #fff;
+    color: black;
     text-transform: uppercase;
     width: 100%;
     height: 50px;
     border-radius: 25px;
-    background: #11C2D4;
+    // background: #11C2D4;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -480,6 +482,12 @@ mat-error {
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+    background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #11C2D4, #F5F5F5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, rgb(40, 172, 187), #F5F5F5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .login100-form-btn:hover {
